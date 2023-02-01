@@ -12,3 +12,7 @@ In the following there will be reported the **Use case diagram** for smart parki
 ![alt text](../use_case/Use%20case%20diagram.png "Use case diagram")
 
 ### Domain stories
+
+Starting from the previous Use Case Diagram have been developed the domain stories
+
+#### 
