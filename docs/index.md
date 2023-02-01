@@ -1,16 +1,11 @@
 # Smart parking
 ## Introduction
 Smart parking is an application that helps people to find out free place where to park their own car/motorcycle around the place.
-## Knowledge Crunching
-The knowledge crunching process has been performed around the several concepts and enities that are interested by this application. In the following table are highlighted the results of this process.
 
-| Entity | Meaning |
-| ------ | ------- |
+## Knowledge crunching
+During the Domain Analysis problem have been used several techniques to provide a proper knowledge crunching in order to have a clear view of actors that are interested by the application.
 
-## Domain Analysis
-### Subdomains
-### Bounded Contexts
-### Context Map
-## Implementation
-### Client
-### Backend
+### Use cases
+
+
+### Domain stories
