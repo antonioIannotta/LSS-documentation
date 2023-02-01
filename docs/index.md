@@ -7,5 +7,7 @@ During the Domain Analysis problem have been used several techniques to provide 
 
 ### Use cases
 
+The first step to perform the knowledge crunhing has been to collect the use cases of the application:
+
 
 ### Domain stories
