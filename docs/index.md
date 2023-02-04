@@ -23,15 +23,15 @@ In the following are reported the main requirements that the system must satisfy
 
 In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically the information related to the system and the knowledge crunching process itself have been implementet through interviews.
 
-* How does a user access to the system?\
+* **How does a user access to the system?**\
 The sign-up and sign-in operations are handled through the Google Auth tool. So the user only needs to have a Google account
 
-* What is a park?\
+* **What is a park?**\
 In this application it's better to deal with the concept of park in the meaning of single slot where a certain person can park its car/motorcycle. So the user can park its car/motorcycle into a parking slot.
 
-* What does it happen when a user wants to park its car/motorcycle?\
+* **What does it happen when a user wants to park its car/motorcycle?**\
 The user sees a free parking slot and occupy it with its car/motorcycle. After that from the app he/she selects the hour in which the stop will end.
 
-* How can a user sees the parking slots status around the city?
+* **How can a user sees the parking slots status around the city?**
 
 
