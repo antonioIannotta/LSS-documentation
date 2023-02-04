@@ -38,4 +38,9 @@ The application shows every parking slot that is in a certain place. The place d
     - **orange**: the parking slot will be free in few minutes
     - **green**: the parking slot is free
 
+* **How does a user select the distance of interest in which he can see the parking slots?**\
+The user can select the distance of interest specifying a range in which he wants to see the parking slots status.
+
+* **Could a user increment the stop?**\
+The user can increment the duration of the stop before the previous stop ends. More specifically he/she can only specify a time after the end stop time previously inserted.
 
