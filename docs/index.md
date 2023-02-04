@@ -32,6 +32,10 @@ In this application it's better to deal with the concept of park in the meaning 
 * **What does it happen when a user wants to park its car/motorcycle?**\
 The user sees a free parking slot and occupy it with its car/motorcycle. After that from the app he/she selects the hour in which the stop will end.
 
-* **How can a user sees the parking slots status around the city?**
+* **How can a user sees the parking slots status around the city?**\
+The application shows every parking slot that is in a certain place. The place depends on the location of the user and on the distance of interest that the user specify. Every parking slot is shown in one of three possible colors: 
+    - **red**: the parking slot is busy
+    - **orange**: the parking slot will be free in few minutes
+    - **green**: the parking slot is free
 
 
