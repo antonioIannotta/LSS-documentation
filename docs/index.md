@@ -53,7 +53,7 @@ The result of the previous knowledge crunching step has been the creation of a g
 * **End stop**: the time limit within the user must remove its vehicle from the parking slot.
 
 ### Use cases
-After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: \
+After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: 
 ![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
 From the previous image is possible to see how in this system there are two main actors involved in the operations:\
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
