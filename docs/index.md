@@ -51,3 +51,7 @@ The result of the previous knowledge crunching step has been the creation of a g
 * **Occupy**: the action of moving a vehicle into a parking slot
 * **Application**: Android application
 * **End stop**: the time limit within the user must remove its vehicle from the parking slot.
+
+### Use cases
+After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking:\
+![Alt text](../use_case/Use%20case%20diagram.png "Use cases")
