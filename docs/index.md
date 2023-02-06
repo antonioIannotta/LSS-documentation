@@ -54,7 +54,12 @@ The result of the previous knowledge crunching step has been the creation of a g
 
 ### Use cases
 After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: \
-![Alt text](../use_case/Use%20case%20diagram.png "Use cases") \
+![alt text](../use_case/Use%20case%20diagram.png "Use cases") \
 From the previous image is possible to see how in this system there are two main actors involved in the operations:\
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
-* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. Is also the client that is in charge to handle the setting of the end stop time or the increment of this time itself.
+* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. Is also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
+It's possible to notice, from the picture, the following operation:
+* **Access**: for the access operation the directionality is from the user to the client for the request and every possible check is handled by the client. \
+* **Check parking slots status**: in this case is the client that is in charge to periodically show to the user the status of the parking slots.
+* **Park**: this operation involves the user that is involved into the selection of the parking slot that he wants to occupy and into the setting of the end time and, at the same time, involves the client that is in charge to change the status of the specified parking slot.
+* **Extend stop**: with this operation the user extends the end stop time and the client is in charge to handle this extension by meaning of properly change the status of the parking slot. For example turning the color of a certain parking slot from orange to red.
