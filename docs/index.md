@@ -63,3 +63,13 @@ It's possible to notice, from the picture, the following operation:
 * **Check parking slots status**: in this case is the client that is in charge to periodically show to the user the status of the parking slots.
 * **Park**: this operation involves the user that is involved into the selection of the parking slot that he wants to occupy and into the setting of the end time and, at the same time, involves the client that is in charge to change the status of the specified parking slot.
 * **Extend stop**: with this operation the user extends the end stop time and the client is in charge to handle this extension by meaning of properly change the status of the parking slot. For example turning the color of a certain parking slot from orange to red.
+
+### User stories
+After the collaction of the main use cases for the system have been collected some user stories that describe the operativity of the system under certain circumstances. More specifically the user stories illustrated are the following:
+* The user access to the system
+* The user park its own car
+* The user checks for the status of parking slots in the map
+* The user extends its stop
+In the following are illustrated the user stories:
+
+![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
