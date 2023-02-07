@@ -77,3 +77,5 @@ In the following are illustrated the user stories:
 ![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Parking user story")
 
 ![alt text](../user%20stories/Status%20show_2023-02-07.png "Show parking slot status")
+
+![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Parking extension")
