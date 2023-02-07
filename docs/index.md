@@ -73,3 +73,5 @@ After the collaction of the main use cases for the system have been collected so
 In the following are illustrated the user stories:
 
 ![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
+
+![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Parking user story")
