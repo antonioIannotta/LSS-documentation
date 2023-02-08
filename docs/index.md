@@ -87,7 +87,8 @@ In the following are illustrated the user stories:
 ## Design
 
 ### Architecture
-The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and thge backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
+The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and thge backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
+ It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
 
 #### Backend
 
