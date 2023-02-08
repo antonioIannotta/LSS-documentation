@@ -79,3 +79,18 @@ In the following are illustrated the user stories:
 ![alt text](../user%20stories/Status%20show_2023-02-07.png "Show parking slot status")
 
 ![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Parking extension")
+
+### Strategic Design
+
+### Tactical Design
+
+## Design
+
+### Architecture
+The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and thge backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
+
+#### Backend
+
+#### Client
+
+## Installation
