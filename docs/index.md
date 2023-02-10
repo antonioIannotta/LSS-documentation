@@ -86,11 +86,19 @@ In the following are illustrated the user stories:
 
 ## Design
 
-### Architecture
+### Architecture and implementation
 The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and thge backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
- It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
-
+It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture. \
 #### Backend
+The backend is composed by the database and by the software that is in charge to define the logic before the access to the database. More specifically there are two main component:
+* **Database**
+* **Web Service**
+While there's not too much to say about the database it's important to talk about the web service. There are two main routes:
+* **/user**
+* **/parking-slot**
+Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update from/to the database the infromation related to the parking slots.
+
+##### Backend implementation
 
 #### Client
 
