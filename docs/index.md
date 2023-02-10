@@ -100,7 +100,9 @@ While there's not too much to say about the database it's important to talk abou
 Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update from/to the database the infromation related to the parking slots.
 
 ##### Backend implementation
-There have been several theoretical consideration to address the 
+There have been several theoretical consideration that led to choose a specific typology of either database or web framework rather than the another one.
+* **Database**: the choise of a NoSQL address has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
+* **Web Service**:  
 #### Client
 
 ### CI/CD
