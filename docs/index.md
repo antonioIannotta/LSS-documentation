@@ -89,7 +89,7 @@ In the following are illustrated the user stories:
 ### Architecture and implementation
 The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and thge backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
 A first general consideration is meaningful considering the separation between the logic/storage component (the backend) and the logic/presentation component (the frontend). This separation has been the result of a deep analysis and it resulted as the best choise because of the possibility to have independence in both architecture and implementation of each part. More specifically, adopting this philosophy of separation of concerns at the architectural side has been possible to choose the database that turned out to be the best for us and to choose the web service framework totally free.
-It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture. \
+It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture. 
 #### Backend
 The backend is composed by the database and by the software that is in charge to define the logic before the access to the database. More specifically there are two main component:
 * **Database**
@@ -102,7 +102,7 @@ Each of these routes is in charge to recall logic to handle either the user acce
 ##### Backend implementation
 There have been several theoretical consideration that led to choose a specific typology of either database or web framework rather than the another one.
 * **Database**: the choise of a NoSQL address has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
-* **Web Service**:  
+* **Web Service**: the choise of the web framework to use for the backend has been led by the consideration of have a single language across the whole application. In order to achieve this goal has been used Ktor as web framework (implemented in Kotlin). 
 #### Client
 
 ### CI/CD
