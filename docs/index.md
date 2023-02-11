@@ -107,4 +107,16 @@ There have been several theoretical consideration that led to choose a specific 
 
 ### CI/CD
 
+The platforms and tools for CI/CD that have been chosen are the following:
+* **GitHub**
+* **GitHub Actions**
+* **Docker**
+
+In order to provide a better organization for the whole project have been created 2 repositories on GitHub. Each repository have a different and isolated CI/CD pipeline. This choise has been led by the consideration about the fact that in order to address the scalability the backend could change in different manner and could be developed by people that are independent by the ones that implement the frontend.
+
+#### CI/CD Backend
+For the backend the pipeline has been composed by a GitHub Actions that executes the test on the **/dev** branch at every pull-request on the master. The code of the test is executed invoking the gradle command that is in charge to execute the defined task create for the execution of the test related to both routes. \
+In case of a 100% test success a Docker Image is either created or updated and pushed on Docker Hub.
+#### CI/CD Frontend
+
 ## Installation
