@@ -102,7 +102,7 @@ Each of these routes is in charge to recall logic to handle either the user acce
 ##### Backend implementation
 There have been several theoretical consideration that led to choose a specific typology of either database or web framework rather than the another one.
 * **Database**: the choise of a NoSQL address has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
-* **Web Service**: the choise of the web framework to use for the backend has been led by the consideration of have a single language across the whole application. In order to achieve this goal has been used Ktor as web framework (implemented in Kotlin). 
+* **Web Service**: the choise of the web framework to use for the backend has been led by the consideration of have a single language across the whole application. In order to achieve this goal has been used Ktor as web framework (implemented in Kotlin). In order to implement the routes for the web service has been adopted a ReST approach in order to create ReSTful API. 
 #### Client
 
 ### CI/CD
@@ -116,7 +116,7 @@ In order to provide a better organization for the whole project have been create
 
 #### CI/CD Backend
 For the backend the pipeline has been composed by a GitHub Actions that executes the test on the **/dev** branch at every pull-request on the master. The code of the test is executed invoking the gradle command that is in charge to execute the defined task create for the execution of the test related to both routes. \
-In case of a 100% test success a Docker Image is either created or updated and pushed on Docker Hub.
+In case of a 100% test success a Docker Image is either created or updated and pushed on Docker Hub. This solution has been led by the microservice-oriented philosophy that is intended for the backend.
 #### CI/CD Frontend
 
 ## Installation
