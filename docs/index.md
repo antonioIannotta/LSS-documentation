@@ -29,7 +29,10 @@ The user access to the system depends on the fact that the user either access to
     - **Sign in**: through this operation is possible, for a user that already have an account, to access into the system
 
 * **What is a park?**\
-In this application it's better to deal with the concept of park in the meaning of single slot where a certain person can park its car/motorcycle. So the user can park its car/motorcycle into a parking slot.
+Within this application the park is the action that a person perform in order to put its own motorvehicle into a single parking slot.
+
+* **What is a parking slot?**\
+A parking slot is the place where a person can park its own motorvehicle
 
 * **What does it happen when a user wants to park its car/motorcycle?**\
 The user sees a free parking slot and occupy it with its car/motorcycle. After that from the app he/she selects the hour in which the stop will end.
