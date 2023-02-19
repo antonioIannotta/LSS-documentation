@@ -3,7 +3,7 @@
 ## Introduction
 
 ### Overview
-The parking situation it's etimated to become more and more complicated in the next years. This increase of complexity is due to two main factors:
+The parking situation it's etimated to become more and more complicated in the next years. This increase of complexity is related to two main factors:
 * the need for the cities to earn moeny from the available parking slot
 * the number of cars in the city
 These factors lead to the possibility for the citizen to trust on a parking system fully digitalized in which the payment system is secure and the availability of a certain parking slot is always shown in a reliable manner.
@@ -13,18 +13,20 @@ In this project the payment system issue has not been addressed.
 ### Requirements
 In the following are reported the main requirements that the system must satisfy:
 * The user must easily access to the system
-* The system must show to the user the state of the several parking slot around the city.
-* The system must allow the user to select the end of the stop after having parked the car/motorcycle.
+* The system must show to the user the state of the several parking slots around the city.
+* The system must allow the user to select the end of the stop after having parked the motorvehicle
 * The system must allow the user to easily increment the stop duration
 
 ## Domain Analysis
 
 ### Knowledge crunching
 
-In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically the information related to the system and the knowledge crunching process itself have been implementet through interviews.
+In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically the information related to the system and the knowledge crunching process itself have been recovered through interviews.
 
 * **How does a user access to the system?**\
-The sign-up and sign-in operations are handled through the Google Auth tool. So the user only needs to have a Google account
+The user access to the system depends on the fact that the user either access to the system for the first time or it already has an account.
+    - **Sign up**: this operation allows a user that does not have an account to create one.
+    - **Sign in**: through this operation is possible, for a user that already have an account, to access into the system
 
 * **What is a park?**\
 In this application it's better to deal with the concept of park in the meaning of single slot where a certain person can park its car/motorcycle. So the user can park its car/motorcycle into a parking slot.
