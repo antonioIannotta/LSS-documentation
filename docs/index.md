@@ -113,7 +113,7 @@ There have been several theoretical consideration that led to choose a specific 
 The architecture adopted for the backend has followed the rules of the **Clean architecture**. This architecture led to the detection of several layers for the application and has been applied to both the two modules that the backend has: **user** and **parking slot**. The layers detected are the following:
 * **entity**
 * **use cases**
-* **interface adapted**
+* **interface adapter**
 * **framework**
 
 In the following is reported the architecture for each module:
@@ -121,7 +121,13 @@ In the following is reported the architecture for each module:
 ###### User 
 
 ###### Parking slot
+* Entity:
+ - **Paring Slot**: this entity is completely mapped into the database and      represents a single parking slot. Any other component of the parking slot module depends on the parking slot entity.
 
+* Use cases:
+    - **Occupy a slot**: this is the use case in which a user is intended to occupy a parking slot for a certain amount of time
+    - **Increment occupation**: this is the use case in which a user is intended to extend the occupation of a certain parking slot.
+    - **Free slot**: this is the use case in which a user free the parking slot previously occupied.
 
 #### Client
 
