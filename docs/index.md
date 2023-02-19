@@ -129,6 +129,11 @@ In the following is reported the architecture for each module:
     - **Increment occupation**: this is the use case in which a user is intended to extend the occupation of a certain parking slot.
     - **Free slot**: this is the use case in which a user free the parking slot previously occupied.
 
+* Interface adapter:
+    - This layer is in charge to handle the requests coming from the framework, that is the most external layer, and translate them into use cases.
+
+* Framework:
+    - In this case is represented by the web server.
 #### Client
 
 ### CI/CD
