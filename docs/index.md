@@ -122,7 +122,7 @@ In the following is reported the architecture for each module:
 
 ###### Parking slot
 * Entity:
- - **Paring Slot**: this entity is completely mapped into the database and      represents a single parking slot. Any other component of the parking slot module depends on the parking slot entity.
+    - **Paring Slot**: this entity is completely mapped into the database and      represents a single parking slot. Any other component of the parking slot module depends on the parking slot entity.
 
 * Use cases:
     - **Occupy a slot**: this is the use case in which a user is intended to occupy a parking slot for a certain amount of time
