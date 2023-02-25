@@ -133,7 +133,12 @@ In the following is reported the architecture for each module:
     - This layer is in charge to handle the requests coming from the framework, that is the most external layer, and translate them into use cases.
 
 * Framework:
-    - In this case is represented by the web server.
+    - In this case is represented by the web server and by the database choose for the purpose.
+
+##### Backend: implementation
+
+###### User
+###### Parking Slot
 #### Client
 
 ### CI/CD
