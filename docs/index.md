@@ -150,7 +150,7 @@ Considering the implementation aspects each module is a single gradle module. Mo
 ###### User
 
 ###### Parking Slot
-
+In order to talk about the implementation of the parking slot operations inside the submodel **parking-slot** is important to keep together implementation and clean architecture.
 #### Client
 
 ### CI/CD
