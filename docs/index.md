@@ -173,8 +173,11 @@ The platforms and tools for CI/CD that have been chosen are the following:
 In order to provide a better organization for the whole project have been created 2 repositories on GitHub. Each repository have a different and isolated CI/CD pipeline. This choise has been led by the consideration about the fact that in order to address the scalability the backend could change in different manner and could be developed by people that are independent by the ones that implement the frontend.
 
 #### CI/CD Backend
-For the backend the pipeline has been composed by a GitHub Actions that executes the test on the **/dev** branch at every pull-request on the master. The code of the test is executed invoking the gradle command that is in charge to execute the defined task create for the execution of the test related to both routes. \
-In case of a 100% test success a Docker Image is either created or updated and pushed on Docker Hub. This solution has been led by the microservice-oriented philosophy that is intended for the backend.
+As previously said have been chosen two different CI/CD pipelines, corresponding to the two repositories created on GitHub. For the pipeline related to the backend repository have been created two workflows for the two main branches:
+* **/dev**: there is a workflow that begins its execution everytime there's a push on **/dev** branch. This workflow is helpful because it is in charge to execute the tests calling a **gradle build**.
+* **/master**: here there's the most important workflow, because at every push on the branch **/master** the workflow is in charge to push a docker image previously defined into a docker file on DockerHub. It's important to report the main features of the defined dockerfile:
+    - it starts from an **Ubuntu** image.
+    - install all the needed packages and then clone the repository, checkount on master and then executes the **./gradlew build**. This is done before the image is pushed. When the container is pulled and executed the application starts executing the **./gradlew run** and exposing the API on 8080 port.
 #### CI/CD Frontend
 
 ## Installation
