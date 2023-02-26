@@ -150,7 +150,15 @@ Considering the implementation aspects each module is a single gradle module. Mo
 ###### User
 
 ###### Parking Slot
-In order to talk about the implementation of the parking slot operations inside the submodel **parking-slot** is important to keep together implementation and clean architecture.
+In order to talk about the implementation of the parking slot operations inside the submodel **parking-slot** is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases and interface adapter) correspond to three packages into the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. In the following are reported more specifically the element that fill any of the three layers of the **parking-slot** submodule:
+* **entity**: in this package there are all those entities that are the domain basis for the parking-slot subproject. These core entities are:
+    - **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
+    - **Center**: represents the area around the which the user is interested about the status of the parking slots.
+    - **StopEnd**: represents the end stop setted or incremented for a certain parking slot.
+    - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time and the identifier (that is unique for each parking slot)
+    All these entities are modelled as **Kotlin** classes. This choise derived by the consideration about the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choise has been to model them as classes.
+
+* **use_cases**: in this package are reported the use cases, representing the second layer of the clear architecture previosuly presentend. Remaining on the implementation side 
 #### Client
 
 ### CI/CD
