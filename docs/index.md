@@ -158,7 +158,8 @@ In order to talk about the implementation of the parking slot operations inside 
     - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time and the identifier (that is unique for each parking slot)
     All these entities are modelled as **Kotlin** classes. This choise derived by the consideration about the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choise has been to model them as classes.
 
-* **use_cases**: in this package are reported the use cases, representing the second layer of the clear architecture previosuly presentend. Remaining on the implementation side 
+* **use_cases**: in this package are reported the use cases, representing the second layer of the clear architecture previosuly presentend. Remaining on the implementation side the use cases have been represented as method of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framwework requests.
+ 
 #### Client
 
 ### CI/CD
