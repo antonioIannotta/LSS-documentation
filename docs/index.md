@@ -50,7 +50,6 @@ The user can select the distance of interest specifying a range in which he want
 The user can increment the duration of the stop before the previous stop ends. More specifically he/she can only specify a time after the end stop time previously inserted.
 
 ### Ubiquitous language
-
 The result of the previous knowledge crunching step has been the creation of a glossary with the goal to provide an ubiquitous language around the which develop the whole system. The glossary contains the following concepts:
 * **Parking slot**: location where the user can park its own car/motorcycle
 * **Occupy**: the action of moving a vehicle into a parking slot
@@ -88,18 +87,14 @@ In the following are illustrated the user stories:
 ### Strategic Design
 
 #### Bounded Context
-
 Knowledge crunching phase allowed to find the BC of the system:
-
 * **Parking-slot management context**: TODO
 * **Parking-slot time management context**: TODO
 * **User authentication context**: responsible to all user-related operatins, such as sign-in, sign-up and account deletion. It also authenticate user allowing him to use protected services (such as parking slot occupation).
 * **User dashboard context**: it's the frontend application, the Android client, responsible to show backend data to the user
 
 #### Context Map
-
 Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
-
 ![alt text](../context_map/cm.png "System context map")
 
 ## Design
@@ -107,7 +102,8 @@ Bounded contexts relationship was modeled in a context map. The context map was 
 ### Architecture and implementation
 The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and the backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
 A first general consideration is meaningful considering the separation between the logic/storage component (the backend) and the logic/presentation component (the frontend). This separation has been the result of a deep analysis and it resulted as the best choise because of the possibility to have independence in both architecture and implementation of each part. More specifically, adopting this philosophy of separation of concerns at the architectural side has been possible to choose the database that turned out to be the best for us and to choose the web service framework totally free.
-It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture. 
+It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
+
 #### Backend
 The backend is composed by the database and by the software that is in charge to define the logic behind the access to the database. More specifically there are two main component:
 * **Database** two different databases was used for the application, one for the user authentication bounded context and one for the parking slot management bounded context. Databases was each stored on MongoDB Cloud.
@@ -176,8 +172,8 @@ In the previous section has been reported as the application is composed of two 
 The user operations are all those operations related to the access of the user to the system. The parking slot operations are all those operations that are related to the management of parking slot status. These operations are mapped into two submodules for the implementation side correspond to two several collections into the database.
 Considering the implementation aspects each module is a single gradle module. More specifically there are three modules:
 * **Parking system**: this is the main module, in which there's the access point for the application and the framework layer from the previous paragraph. 
-    - **user**: the submodule related to the operations for the access of the user to the system.
-    - **parking-slot**: the submodule related to the operations for the management of parking slot.
+    - **user**: the submodule related to the operations for the user access to the system.
+    - **parking-slot**: the submodule related to the operations for the parking-slot management.
 
 ###### User
 
@@ -190,9 +186,10 @@ In order to talk about the implementation of the parking slot operations inside 
     - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time and the identifier (that is unique for each parking slot)
     All these entities are modelled as **Kotlin** classes. This choise derived by the consideration about the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choise has been to model them as classes.
 
-* **use_cases**: in this package are reported the use cases, representing the second layer of the clear architecture previosuly presentend. Remaining on the implementation side the use cases have been represented as method of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framwework requests.
+* **use_cases**: in this package are reported the use cases, representing the second layer of the clean architecture previosuly presentend. Remaining on the implementation side the use cases have been represented as method of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framwework requests.
 
 * **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as constuctor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provide the results that are used into the framework package to provide the responds to the incoming requests from the client. It's important to notice how, implementing the Interface adapter in this way, the use cases remains independent from it and, in case of change of the Database, will only be necessary to change the constructor argument and some operation inside this class. This solution has been thought to be aligned to the SoC principle and, furthermore, to be coherent with the previous domain analysis.
+
 #### Client
 
 ### CI/CD
@@ -210,6 +207,7 @@ As previously said have been chosen two different CI/CD pipelines, corresponding
 * **/master**: here there's the most important workflow, because at every push on the branch **/master** the workflow is in charge to push a docker image previously defined into a docker file on DockerHub. It's important to report the main features of the defined dockerfile:
     - it starts from an **Ubuntu** image.
     - install all the needed packages and then clone the repository, checkount on master and then executes the **./gradlew build**. This is done before the image is pushed. When the container is pulled and executed the application starts executing the **./gradlew run** and exposing the API on 8080 port.
+
 #### CI/CD Frontend
 
 ## Installation
