@@ -132,6 +132,24 @@ The architecture adopted for the backend has followed the rules of the **Clean a
 In the following is reported the architecture for each module:
 
 ###### User 
+* Entity:
+    - **User**: completely mapped in the database, it represents all used information about the user (email, password and name).
+    - **User credentials**: represents a id-password pair used from the user to log him into the system (the user identifier is the email address).
+    - **User info**: objects that represent the user's not sensitive information. It corresponds to a user object without password field.
+* Use cases:
+    - **Login**: a user provides his identified and password to access the system.
+    - **create user**: a user wants to register him on the sistem.
+    - **Get info**: a user wants see him account information.
+    - **Change password**: a user wants to change his password with a new one. 
+    - **Delete user**: a registered user wants to delete his account.
+    - **Validate**: a email-password pair must be validated (checking if a user with this email exists in the database and if the associated password corresponds with the one in the email-password pair).
+    - **Exists** an user email must be verified checking in the database if there's a registered user with this email
+
+* Interface adapter:
+    - handles the framework layer requests, translating them into use cases.
+
+* Framework:
+    - It's represented by KTOR web server and Mongo database.
 
 ###### Parking slot
 * Entity:
