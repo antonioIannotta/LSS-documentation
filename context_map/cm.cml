@@ -1,0 +1,29 @@
+BoundedContext ParkingSlotManagementContext {
+
+}
+
+BoundedContext ParkingSlotTimeManagementContext {
+
+}
+
+BoundedContext UserAuthenticationContext {
+
+}
+
+BoundedContext UserDashboardContext {
+
+}
+
+ContextMap {
+
+    contains ParkingSlotManagementContext
+    contains ParkingSlotTimeManagementContext
+    contains UserAuthenticationContext
+    contains UserDashboardContext
+
+    ParkingSlotManagementContext [SK] <-> [SK] ParkingSlotTimeManagementContext
+    ParkingSlotManagementContext [SK] <-> [SK] UserDashboardContext
+    UserAuthenticationContext [P] <-> [P] UserDashboardContext
+    ParkingSlotTimeManagementContext [U] -> [D] UserDashboardContext
+
+}

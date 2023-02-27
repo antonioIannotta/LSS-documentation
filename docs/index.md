@@ -87,7 +87,7 @@ In the following are illustrated the user stories:
 
 ### Strategic Design
 
-### Tactical Design
+![alt text](../context_map/cm.png "System context map")
 
 ## Design
 
@@ -147,6 +147,7 @@ Considering the implementation aspects each module is a single gradle module. Mo
 * **Parking system**: this is the main module, in which there's the access point for the application and the framework layer from the previous paragraph. 
     - **user**: the submodule related to the operations for the access of the user to the system.
     - **parking-slot**: the submodule related to the operations for the management of parking slot.
+
 ###### User
 
 ###### Parking Slot
