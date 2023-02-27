@@ -87,6 +87,19 @@ In the following are illustrated the user stories:
 
 ### Strategic Design
 
+#### Bounded Context
+
+Knowledge crunching phase allowed to find the BC of the system:
+
+* **Parking-slot management context**: TODO
+* **Parking-slot time management context**: TODO
+* **User authentication context**: responsible to all user-related operatins, such as sign-in, sign-up and account deletion. It also authenticate user allowing him to use protected services (such as parking slot occupation).
+* **User dashboard context**: it's the frontend application, the Android client, responsible to show backend data to the user
+
+#### Context Map
+
+Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
+
 ![alt text](../context_map/cm.png "System context map")
 
 ## Design
@@ -97,7 +110,7 @@ A first general consideration is meaningful considering the separation between t
 It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture. 
 #### Backend
 The backend is composed by the database and by the software that is in charge to define the logic behind the access to the database. More specifically there are two main component:
-* **Database**
+* **Database** two different databases was used for the application, one for the user authentication bounded context and one for the parking slot management bounded context. Databases was each stored on MongoDB Cloud.
 * **Web Service**
 While there's not too much to say about the database it's important to talk about the web service. There are two main routes:
 * **/user**
