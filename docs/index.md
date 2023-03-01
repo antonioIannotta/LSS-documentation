@@ -12,10 +12,12 @@ In this project the payment system issue has not been addressed.
 
 ### Requirements
 In the following are reported the main requirements that the system must satisfy:
-* The user must easily access to the system
-* The system must show to the user the state of the several parking slots around the city.
-* The system must allow the user to select the end of the stop after having parked the motorvehicle
-* The system must allow the user to easily increment the stop duration
+| ID | Requirement |
+| -- | ----------- |
+| 1  | The user must easily access to the system |
+| 2  | The system must show to the user the state of the several parking slots around the city |
+| 3  | The system must allow the user to select the end of the stop after having parked the motorvehicle |
+| 4  | The system must allow the user to easily increment the stop duration |
 
 ## Domain Analysis
 
