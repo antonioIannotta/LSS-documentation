@@ -11,7 +11,6 @@ These factors lead to the possibility for the citizen to trust on a parking syst
 In this project the payment system issue has not been addressed.
 
 ### Requirements
-In the following are reported the main requirements that the system must satisfy:
 
 | ID | Requirement |
 | -- | ----------- |
