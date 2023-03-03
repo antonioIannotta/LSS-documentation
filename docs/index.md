@@ -44,6 +44,14 @@ In this project the payment system issue has not been addressed.
 | FR8 | The system should show to the user the state of the parking slots nearby him. |
 | FR9 | The system should show to the user the parking slot currently occupied by him. |
 | FR10 | The system should allow users to terminate the occupation of a parking slot. |
+
+#### Non functional requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| NFR1 | The system should be easy to maintain and update. |
+| NFR2 | The system should be able to scale horizontally in response to changing user demand. |
+| NFR3 | The system response times should be fast enough to provide a smooth user experience. |
 ## Domain Analysis
 
 ### Knowledge crunching
