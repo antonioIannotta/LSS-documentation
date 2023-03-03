@@ -47,6 +47,31 @@ Yes, a user can free its current occupied parking slot anytime by using the app.
 
 * **What does it happen if a user occupies a parking slot after the stop end?**\
 In the first version of the system nothing. In future expansions of the system, where a fee will be requested to park, the fee will be higher (maybe 5x) if they don't remove the vehicle after the stop end.
+
+### Ubiquitous language
+After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
+
+| Term | Definition |
+| ---- | ---------- |
+| Frontend | The part of the system that the user interacts with directly, including the user interface and any client-side logic. |
+| Backend | The part of the system that communicates with the frontend via APIs and reads and writes data into a database. |
+| System | The union of the backend and the frontend. |
+| Park | The action of a user placing their vehicle into a single parking slot. |
+| Vehicle | The object that a user parks in a parking slot, such as a car, truck, or motorcycle. |
+| User | A person who interacts with the system to find and occupy parking slots. |
+| Sign up | The operation that allows a user without an account to create one. |
+| Login | The operation that enables a user with an existing account to access the system. |
+| Parking slot | The place where a user can park its own vehicle. |
+| Parking slots map | A map that shows all the parking slots nearby with a marker. |
+| Parking slot marker | A marker used to identify the position of a parking slot in a map, it can be colored in three different ways: green if the parking slot is free, orange if it will be free in ten minutes, red if none of the other cases apply. |
+| Occupied parking slot | A parking slot that is currently occupied by a vehicle. |
+| Free parking slot | A parking slot that is currently not occupied by a vehicle. |
+| Parking slot status | The current status of the parking slot: occupied or not occupied. |
+| Parking slot marker | A symbol shown in the parking slots map
+| Range of interest | The distance selected by the user in the map to specify the area in which they want to see the parking slots. |
+| Duration of parking | The length of time a user occupies a parking slot. |
+| Stop end | The time selected by the user to indicate when they will stop occupying a parking slot. |
+
 ### Requirements
 
 #### Business requirements
@@ -97,14 +122,6 @@ In the first version of the system nothing. In future expansions of the system, 
 | NFR1 | The system should be designed using a modular architecture, following the principles of Domain-Driven Design (DDD). This includes clearly defined domain entities, services, and repositories. |
 | NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
 | NFR3 | The deployment process of the backend and of the frontend should be automated. |
-
-
-### Ubiquitous language
-The result of the previous knowledge crunching step has been the creation of a glossary with the goal to provide an ubiquitous language around the which develop the whole system. The glossary contains the following concepts:
-* **Parking slot**: location where the user can park its own car/motorcycle
-* **Occupy**: the action of moving a vehicle into a parking slot
-* **Application**: Android application
-* **End stop**: the time limit within the user must remove its vehicle from the parking slot.
 
 ### Use cases
 After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: 
