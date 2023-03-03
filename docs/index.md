@@ -9,6 +9,7 @@ A fully digitalized parking system that guarantees reliable information on parki
 
 In order to do that we want to create an application that allows users to find parking slots nearby, occupy one of them and, if needed, extend the occupation.
 The application should have a user-friendly interface with several screens, including a login screen, a signup screen for new users, a password change screen and a home page for finding available parking slots nearby. 
+The project should be developed using the Domain Driven Design (DDD) approach, with a focus on identifying and modeling the key entities, repositories and rules involved in the parking and user domain.
 
 ### Requirements
 
