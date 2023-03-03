@@ -3,12 +3,11 @@
 ## Introduction
 
 ### Overview
-The parking situation it's etimated to become more and more complicated in the next years. This increase of complexity is related to two main factors:
-* the need for the cities to earn moeny from the available parking slot
-* the number of cars in the city
-These factors lead to the possibility for the citizen to trust on a parking system fully digitalized in which the payment system is secure and the availability of a certain parking slot is always shown in a reliable manner.
+In many cities around the world parking has become a significant issue. As the number of cars on the road continues to grow, finding a place to park can be a real challenge. In this context, the parking situation is expected to become increasingly complicated in the next years.
 
-In this project the payment system issue has not been addressed.
+A fully digitalized parking system that guarantees reliable information on parking space availability can be a viable solution. Such a system would enable citizens to trust that they can find a parking space when they need it.
+
+In order to do that we want to create an application that allows users to find parking slots nearby, occupy one of them and, if needed, extend the occupation.
 
 ### Requirements
 
