@@ -72,6 +72,26 @@ After completing the previous step of knowledge crunching, a dictionary was crea
 | Duration of parking | The length of time a user occupies a parking slot. |
 | Stop end | The time selected by the user to indicate when they will stop occupying a parking slot. |
 
+### Use cases
+Following a thorough domain analysis, the use cases and entities involved in this system were identified. The diagram below depicts the use cases for the system: 
+![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
+From the previous image is possible to see how in this system there are two main actors involved in the operations:\
+* **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
+* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
+
+
+It's possible to notice, from the picture, the following operations:
+* **User sign up**: The user creates an account with name, email, and password, to access the system.
+* **User login**: The user logs in to their account with their username and password to access the system.
+* **User password change**: The user changes the password used to access the system by providing the current one and the new one.
+* **User deletion**: The user requests the deletion of all their personal information from the system.
+* **User logout**: The user logs out their account from the frontend.
+* **View parking slots**: The user views a map of available parking slots near their current location. The map shows the markers of the parking slots.
+* **View parking slot**: The user views the location and current status of a specific parking slot.
+* **View current parking slot**: The user views the location and current status of the parking slot they are currently occupying.
+* **Occupy parking slot**: The user occupies a parking slot until stop end.
+* **Increment parking slot occupation**: The user sets a new stop end for the parking slot currently occupied.
+* **Free parking slot**: The user frees the parking slot currently occupied.
 ### Requirements
 
 #### Business requirements
@@ -123,17 +143,6 @@ After completing the previous step of knowledge crunching, a dictionary was crea
 | NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
 | NFR3 | The deployment process of the backend and of the frontend should be automated. |
 
-### Use cases
-After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: 
-![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
-From the previous image is possible to see how in this system there are two main actors involved in the operations:\
-* **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
-* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
-It's possible to notice, from the picture, the following operations:
-* **Access**: for the access operation the directionality is from the user to the client for the request and every possible check is handled by the client.
-* **Check parking slots status**: in this case is the client that is in charge to periodically show to the user the status of the parking slots.
-* **Park**: this operation involves the user that is involved into the selection of the parking slot that he wants to occupy and into the setting of the end time and, at the same time, involves the client that is in charge to change the status of the specified parking slot.
-* **Extend stop**: with this operation the user extends the end stop time and the client is in charge to handle this extension by meaning of properly change the status of the parking slot. For example turning the color of a certain parking slot from orange to red.
 
 ### User stories
 After the collection of the main use cases for the system have been collected some user stories that describe the operativity of the system under certain circumstances. More specifically the user stories illustrated are the following:
