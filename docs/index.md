@@ -29,6 +29,21 @@ In this project the payment system issue has not been addressed.
 | UR6 | Users should be able to reserve a parking slot for a specific time period. |
 | UR7 | Users should be able to extend the occupation of their parking slot. |
 | UR8 | Users should be able to terminate parking slot occupation. |
+
+#### Functional requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| FR1 | The system should allow users to register by providing name, email and password. |
+| FR2 | The system should authenticate registered users by verifying their login credentials (email and password). |
+| FR3 | The system should allow users to change their password at any time. |
+| FR4 | The system should allow users to delete their account. |
+| FR5 | The system should allow users to logout. |
+| FR6 | The system should allow users to occupy a parking slot by selecting it from a map and specifying the end of stop. |
+| FR7 | The system should allow users to extend the occupation of a parking slot for a specified period. |
+| FR8 | The system should show to the user the state of the parking slots nearby him. |
+| FR9 | The system should show to the user the parking slot currently occupied by him. |
+| FR10 | The system should allow users to terminate the occupation of a parking slot. |
 ## Domain Analysis
 
 ### Knowledge crunching
