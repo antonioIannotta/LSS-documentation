@@ -52,6 +52,16 @@ In this project the payment system issue has not been addressed.
 | NFR1 | The system should be easy to maintain and update. |
 | NFR2 | The system should be able to scale horizontally in response to changing user demand. |
 | NFR3 | The system response times should be fast enough to provide a smooth user experience. |
+
+#### Implementation requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| NFR1 | The system should be designed using a modular architecture, following the principles of Domain-Driven Design (DDD). This includes clearly defined domain entities, services, and repositories. |
+| NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
+| NFR3 | The deployment process of the backend and of the frontend should be automated. |
+
+
 ## Domain Analysis
 
 ### Knowledge crunching
