@@ -17,6 +17,18 @@ In this project the payment system issue has not been addressed.
 | -- | ----------- |
 | BR1 | The application should provide an easy way for parking slot owners to manage their slots.
 
+#### User requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| UR1 | Users should be able to create a new account by providing name, email, and password. |
+| UR2 | Users should be able to log in to their account using their email and password. |
+| UR3 | Users should be able to change their password. |
+| UR4 | Users should be able to delete their account and have all associated data removed from the system. |
+| UR5 | Users should be able to search for available parking slots near their current location. |
+| UR6 | Users should be able to reserve a parking slot for a specific time period. |
+| UR7 | Users should be able to extend the occupation of their parking slot. |
+| UR8 | Users should be able to terminate parking slot occupation. |
 ## Domain Analysis
 
 ### Knowledge crunching
