@@ -92,6 +92,24 @@ It's possible to notice, from the picture, the following operations:
 * **Occupy parking slot**: The user occupies a parking slot until stop end.
 * **Increment parking slot occupation**: The user sets a new stop end for the parking slot currently occupied.
 * **Free parking slot**: The user frees the parking slot currently occupied.
+
+### User stories
+After collecting the main use cases for the system, several user stories were developed to describe the system's functionality under specific circumstances. More specifically the user stories illustrated are the followings:
+* As a user, I want to access the system so that I can find and occupy a parking slot.
+* As a user, I want to occupy a parking slot for a certain duration of time so that I can park my vehicle.
+* As a user, I want to see the status of each parking slot on the map so that I can determine whether it is occupied or available.
+* As a user, I want to extend the duration of my parking if I need to park my vehicle for a longer period of time.
+
+Below, you will find the illustrated user stories:
+
+![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
+
+![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Occupy parking slot")
+
+![alt text](../user%20stories/Status%20show_2023-02-07.png "View parking slot statuses")
+
+![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Increment parking slot occupation")
+
 ### Requirements
 
 #### Business requirements
@@ -142,23 +160,6 @@ It's possible to notice, from the picture, the following operations:
 | NFR1 | The system should be designed using a modular architecture, following the principles of Domain-Driven Design (DDD). This includes clearly defined domain entities, services, and repositories. |
 | NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
 | NFR3 | The deployment process of the backend and of the frontend should be automated. |
-
-
-### User stories
-After the collection of the main use cases for the system have been collected some user stories that describe the operativity of the system under certain circumstances. More specifically the user stories illustrated are the following:
-* The user access to the system
-* The user park its own car
-* The user checks for the status of parking slots in the map
-* The user extends its stop
-In the following are illustrated the user stories:
-
-![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
-
-![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Parking user story")
-
-![alt text](../user%20stories/Status%20show_2023-02-07.png "Show parking slot status")
-
-![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Parking extension")
 
 ### Strategic Design
 
