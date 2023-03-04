@@ -223,8 +223,14 @@ Considering the implementation aspects each module is a single gradle module. Mo
 
 ###### User
 
+The 3 inner layers of CLEAN architecture are located in **user** submodule while the framework layer is in the core module due to the shared aspect with **parking-slot** submodule (there are framework features shared by both submodules, such as the application server and routing and authentication features). 
+
+**entity** package contains serializable data classes that implement user entities (User, UserInfo and UserCredentials).
+**use_cases** package contains an interfaace that describe the behaviour of all the use cases.
+**interface_adapter** package contains a class UserInterfaceAdapter that implements the use cases. It also includes two submodules: a model package and a utils package. The model subpackage contains data classes that define the request/response body structure that should be used from the framework layer. The utils subpackage contains utility functions such as email sender method and jwt handler methods (generation and validation).
+
 ###### Parking Slot
-In order to talk about the implementation of the parking slot operations inside the submodel **parking-slot** is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases and interface adapter) correspond to three packages into the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. In the following are reported more specifically the element that fill any of the three layers of the **parking-slot** submodule:
+In order to talk about the implementation of the parking slot operations inside the submodule **parking-slot** is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases and interface adapter) correspond to three packages into the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. In the following are reported more specifically the element that fill any of the three layers of the **parking-slot** submodule:
 * **entity**: in this package there are all those entities that are the domain basis for the parking-slot subproject. These core entities are:
     - **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
     - **Center**: represents the area around the which the user is interested about the status of the parking slots.
