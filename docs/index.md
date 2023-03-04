@@ -11,6 +11,105 @@ In order to do that we want to create an application that allows users to find p
 The application should have a user-friendly interface with several screens, including a login screen, a signup screen for new users, a password change screen and a home page for finding available parking slots nearby. 
 The project should be developed using the Domain Driven Design (DDD) approach, with a focus on identifying and modeling the key entities, repositories and rules involved in the parking and user domain.
 
+## Domain Analysis
+
+### Knowledge crunching
+
+In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically, the information related to the system and the knowledge crunching process itself have been recovered through interviews.
+
+* **How does a user access the system?**\
+User access to the system depends on whether they are accessing the system for the first time or already have an account:
+    - **Sign up**: this operation allows a user without an account to create one;
+    - **Login**: this operation enables a user with an existing account to access the system.
+
+* **What is a park?**\
+In this system, park refers to the action of a user placing their vehicle into a single parking slot.
+
+* **What is a parking slot?**\
+A parking slot is the place where a person can park its own vehicle
+
+* **What does it happen when a user wants to park its vehicle?**\
+When a user sees a free parking slot they occupy it with its vehicle. After that they report the occupation to the system by selecting the hour in which the stop will end.
+
+* **How can a user see the status of parking slots around the city?**\
+The application displays a map with all parking slots in a certain area, determined by the user's location and a specified range of interest. Each parking slot is shown with a marker in one of three possible colors: 
+    - **red**: the parking slot is occupied
+    - **orange**: the parking slot will be free in ten minutes
+    - **green**: the parking slot is free
+
+* **How does a user select the distance of interest in which he can see the parking slots?**\
+The user can select the distance of interest specifying a range in which he wants to see the parking slots status.
+
+* **Can a user increase their parking time?**\
+Users can increase the duration of their parking anytime. However, they can only specify a time after the previously selected end time (it is not possible to shorten the parking time).
+* **Can a user free their parking slot anytime?**\
+Yes, a user can free its current occupied parking slot anytime by using the app.
+
+* **What does it happen if a user occupies a parking slot after the stop end?**\
+In the first version of the system nothing. In future expansions of the system, where a fee will be requested to park, the fee will be higher (maybe 5x) if they don't remove the vehicle after the stop end.
+
+### Ubiquitous language
+After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
+
+| Term | Definition |
+| ---- | ---------- |
+| Frontend | The part of the system that the user interacts with directly, including the user interface and any client-side logic. |
+| Backend | The part of the system that communicates with the frontend via APIs and reads and writes data into a database. |
+| System | The union of the backend and the frontend. |
+| Park | The action of a user placing their vehicle into a single parking slot. |
+| Vehicle | The object that a user parks in a parking slot, such as a car, truck, or motorcycle. |
+| User | A person who interacts with the system to find and occupy parking slots. |
+| Sign up | The operation that allows a user without an account to create one. |
+| Login | The operation that enables a user with an existing account to access the system. |
+| Parking slot | The place where a user can park its own vehicle. |
+| Parking slots map | A map that shows all the parking slots nearby with a marker. |
+| Parking slot marker | A marker used to identify the position of a parking slot in a map, it can be colored in three different ways: green if the parking slot is free, orange if it will be free in ten minutes, red if none of the other cases apply. |
+| Occupied parking slot | A parking slot that is currently occupied by a vehicle. |
+| Free parking slot | A parking slot that is currently not occupied by a vehicle. |
+| Parking slot status | The current status of the parking slot: occupied or not occupied. |
+| Parking slot marker | A symbol shown in the parking slots map
+| Range of interest | The distance selected by the user in the map to specify the area in which they want to see the parking slots. |
+| Duration of parking | The length of time a user occupies a parking slot. |
+| Stop end | The time selected by the user to indicate when they will stop occupying a parking slot. |
+
+### Use cases
+Following a thorough domain analysis, the use cases and entities involved in this system were identified. The diagram below depicts the use cases for the system: 
+![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
+From the previous image is possible to see how in this system there are two main actors involved in the operations:\
+* **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
+* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
+
+
+It's possible to notice, from the picture, the following operations:
+* **User sign up**: The user creates an account with name, email, and password, to access the system.
+* **User login**: The user logs in to their account with their username and password to access the system.
+* **User password change**: The user changes the password used to access the system by providing the current one and the new one.
+* **User deletion**: The user requests the deletion of all their personal information from the system.
+* **User logout**: The user logs out their account from the frontend.
+* **View parking slots**: The user views a map of available parking slots near their current location. The map shows the markers of the parking slots.
+* **View parking slot**: The user views the location and current status of a specific parking slot.
+* **View current parking slot**: The user views the location and current status of the parking slot they are currently occupying.
+* **Occupy parking slot**: The user occupies a parking slot until stop end.
+* **Increment parking slot occupation**: The user sets a new stop end for the parking slot currently occupied.
+* **Free parking slot**: The user frees the parking slot currently occupied.
+
+### User stories
+After collecting the main use cases for the system, several user stories were developed to describe the system's functionality under specific circumstances. More specifically the user stories illustrated are the followings:
+* As a user, I want to access the system so that I can find and occupy a parking slot.
+* As a user, I want to occupy a parking slot for a certain duration of time so that I can park my vehicle.
+* As a user, I want to see the status of each parking slot on the map so that I can determine whether it is occupied or available.
+* As a user, I want to extend the duration of my parking if I need to park my vehicle for a longer period of time.
+
+Below, you will find the illustrated user stories:
+
+![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
+
+![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Occupy parking slot")
+
+![alt text](../user%20stories/Status%20show_2023-02-07.png "View parking slot statuses")
+
+![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Increment parking slot occupation")
+
 ### Requirements
 
 #### Business requirements
@@ -61,74 +160,6 @@ The project should be developed using the Domain Driven Design (DDD) approach, w
 | NFR1 | The system should be designed using a modular architecture, following the principles of Domain-Driven Design (DDD). This includes clearly defined domain entities, services, and repositories. |
 | NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
 | NFR3 | The deployment process of the backend and of the frontend should be automated. |
-
-
-## Domain Analysis
-
-### Knowledge crunching
-
-In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically the information related to the system and the knowledge crunching process itself have been recovered through interviews.
-
-* **How does a user access to the system?**\
-The user access to the system depends on the fact that the user either access to the system for the first time or it already has an account.
-    - **Sign up**: this operation allows a user that does not have an account to create one.
-    - **Sign in**: through this operation is possible, for a user that already have an account, to access into the system
-
-* **What is a park?**\
-Within this application the park is the action that a person perform in order to put its own motorvehicle into a single parking slot.
-
-* **What is a parking slot?**\
-A parking slot is the place where a person can park its own motorvehicle
-
-* **What does it happen when a user wants to park its car/motorcycle?**\
-The user sees a free parking slot and occupy it with its car/motorcycle. After that from the app he/she selects the hour in which the stop will end.
-
-* **How can a user see the parking slots status around the city?**\
-The application shows every parking slot that is in a certain place. The place depends on the location of the user and on the distance of interest that the user specify. Every parking slot is shown in one of three possible colors: 
-    - **red**: the parking slot is busy
-    - **orange**: the parking slot will be free in few minutes
-    - **green**: the parking slot is free
-
-* **How does a user select the distance of interest in which he can see the parking slots?**\
-The user can select the distance of interest specifying a range in which he wants to see the parking slots status.
-
-* **Could a user increment the stop?**\
-The user can increment the duration of the stop before the previous stop ends. More specifically he/she can only specify a time after the end stop time previously inserted.
-
-### Ubiquitous language
-The result of the previous knowledge crunching step has been the creation of a glossary with the goal to provide an ubiquitous language around the which develop the whole system. The glossary contains the following concepts:
-* **Parking slot**: location where the user can park its own car/motorcycle
-* **Occupy**: the action of moving a vehicle into a parking slot
-* **Application**: Android application
-* **End stop**: the time limit within the user must remove its vehicle from the parking slot.
-
-### Use cases
-After a proper domain analysis has been possible to detect the use cases and the entities that are involved into this system. The following imgage illustrates the uses cases for Smart Parking: 
-![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
-From the previous image is possible to see how in this system there are two main actors involved in the operations:\
-* **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
-* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
-It's possible to notice, from the picture, the following operations:
-* **Access**: for the access operation the directionality is from the user to the client for the request and every possible check is handled by the client.
-* **Check parking slots status**: in this case is the client that is in charge to periodically show to the user the status of the parking slots.
-* **Park**: this operation involves the user that is involved into the selection of the parking slot that he wants to occupy and into the setting of the end time and, at the same time, involves the client that is in charge to change the status of the specified parking slot.
-* **Extend stop**: with this operation the user extends the end stop time and the client is in charge to handle this extension by meaning of properly change the status of the parking slot. For example turning the color of a certain parking slot from orange to red.
-
-### User stories
-After the collection of the main use cases for the system have been collected some user stories that describe the operativity of the system under certain circumstances. More specifically the user stories illustrated are the following:
-* The user access to the system
-* The user park its own car
-* The user checks for the status of parking slots in the map
-* The user extends its stop
-In the following are illustrated the user stories:
-
-![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
-
-![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Parking user story")
-
-![alt text](../user%20stories/Status%20show_2023-02-07.png "Show parking slot status")
-
-![alt text](../user%20stories/Parking%20extension_2023-02-07.png "Parking extension")
 
 ### Strategic Design
 
