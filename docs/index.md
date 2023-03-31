@@ -277,14 +277,17 @@ In order to talk about the implementation of the parking slot operations inside 
 
 ### CI/CD
 
-The platforms and tools for CI/CD that have been chosen are the following:
-* **GitHub**
-* **GitHub Actions**
-* **Docker**
+### DevOps Practices
 
-In order to provide a better organization for the whole project have been created 2 repositories on GitHub. Each repository have a different and isolated CI/CD pipeline. This choise has been led by the consideration about the fact that in order to address the scalability the backend could change in different manner and could be developed by people that are independent by the ones that implement the frontend.
+In order to provide a well-organized development process, two separate repositories have been created on Github for the frontend and backend of the project. By creating isolated repositories, each team can manage its own codebase and pipelines, without interfering with the other. This ensures that each team is able to focus on its repository allowing the frontend and the backend to grow independently.
 
-#### CI/CD Backend
+
+The platforms and tools that have been chosen are the following:
+  * **GitHub**
+  * **GitHub Actions**
+  * **Docker**
+
+#### Backend
 As previously said have been chosen two different CI/CD pipelines, corresponding to the two repositories created on GitHub. For the pipeline related to the backend repository have been created two workflows for the two main branches:
 * **/dev**: there is a workflow that begins its execution everytime there's a push on **/dev** branch. This workflow is helpful because it is in charge to execute the tests calling a **gradle build**.
 * **/master**: here there's the most important workflow, because at every push on the branch **/master** the workflow is in charge to push a docker image previously defined into a docker file on DockerHub. It's important to report the main features of the defined dockerfile:
