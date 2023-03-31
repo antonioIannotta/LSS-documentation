@@ -164,11 +164,11 @@ Below, you will find the illustrated user stories:
 ### Strategic Design
 
 #### Bounded Context
-Knowledge crunching phase allowed to find the BC of the system:
-* **Parking-slot management context**: TODO
-* **Parking-slot time management context**: TODO
-* **User authentication context**: responsible to all user-related operatins, such as sign-in, sign-up and account deletion. It also authenticate user allowing him to use protected services (such as parking slot occupation).
-* **User dashboard context**: it's the frontend application, the Android client, responsible to show backend data to the user
+In Domain Driven Design in order to better manage the complexity of the domain you want to analyze, it is advisable to thoroughly explore the problem-domain by identifying subdomains.
+We identified four subdomains:
+* **Parking Management (Core)**: this is responsible for managing parking slots, their availability, and their occupancy status. It contains entities such as Parking Slot and Parking Slot State. It is a core subdomain because it contains the main entities and business logic related to the problem: this is the central domain of the application.
+* **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
+* **Client (Supporting)**: this is responsible for handling user interactions, displaying information and sending requests to the backend. It is a supporting subdomain because it provides the user interface and handles user interactions, but it does not contain any core business logic related to parking or user management. Its main role is to interact with the other bounded contexts to fulfill user requests and present information to the user.
 
 #### Context Map
 Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
