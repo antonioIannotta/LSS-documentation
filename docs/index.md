@@ -165,14 +165,17 @@ Below, you will find the illustrated user stories:
 
 #### Bounded Context
 In Domain Driven Design in order to better manage the complexity of the domain you want to analyze, it is advisable to thoroughly explore the problem-domain by identifying subdomains.
-We identified four subdomains:
+We identified three subdomains:
 * **Parking Management (Core)**: this is responsible for managing parking slots, their availability, and their occupancy status. It contains entities such as Parking Slot and Parking Slot State. It is a core subdomain because it contains the main entities and business logic related to the problem: this is the central domain of the application.
 * **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
 * **Client (Supporting)**: this is responsible for handling user interactions, displaying information and sending requests to the backend. It is a supporting subdomain because it provides the user interface and handles user interactions, but it does not contain any core business logic related to parking or user management. Its main role is to interact with the other bounded contexts to fulfill user requests and present information to the user.
 
+![alt text](../strategic_design/core_domain_chart.png "Core Domain Chart")
+
+
 #### Context Map
 Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
-![alt text](../context_map/cm.png "System context map")
+![alt text](../strategic_design/cm.png "System context map")
 
 ## Design
 
