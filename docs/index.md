@@ -273,9 +273,23 @@ In order to talk about the implementation of the parking slot operations inside 
 
 * **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as constuctor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provide the results that are used into the framework package to provide the responds to the incoming requests from the client. It's important to notice how, implementing the Interface adapter in this way, the use cases remains independent from it and, in case of change of the Database, will only be necessary to change the constructor argument and some operation inside this class. This solution has been thought to be aligned to the SoC principle and, furthermore, to be coherent with the previous domain analysis.
 
-#### Client
+#### Frontend
+The frontend follows the Clean Architecture with a separation into four main modules:
+* The domain module contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain module does not depend on any other modules.
+* The data module is responsible for managing the interaction with local storage, backend API and system services. It contains data sources, and repositories implementation. This module only depends on the domain module.
+* The presentation module contains the user interface components and provides the main user-facing features of the app. This module only depends on the domain module.
+* The app module depends on all the three previous modules and it is responsible for the launch of the app.
 
-### CI/CD
+By separating the frontend into distinct modules, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data module and the presentation module only depends on interface (Dependency Inversion Principle). To give the proper implementation to the modules that needs it we have used the service locator pattern.
+
+##### Domain Module
+Divisione nei due moduli
+Entities
+Use Cases
+##### Data Module
+Data Source
+##### Presentation Module
+MVVM
 
 ### DevOps Practices
 
@@ -294,7 +308,33 @@ As previously said have been chosen two different CI/CD pipelines, corresponding
     - it starts from an **Ubuntu** image.
     - install all the needed packages and then clone the repository, checkount on master and then executes the **./gradlew build**. This is done before the image is pushed. When the container is pulled and executed the application starts executing the **./gradlew run** and exposing the API on 8080 port.
 
-#### CI/CD Frontend
+#### Frontend
+The frontend project uses the [Trunk Based Development](https://trunkbaseddevelopment.com) source-control branching model. TBD encourages continuous integration and delivery by minimizing the use of long-lived feature branches: each developer should merge their changes to the main branch frequently by creating pull requests.  This approach avoids the complexity of maintaining multiple branches and allows the team to detect and resolve conflicts early and ensure that everyone is working on the latest version of the codebase. 
+
+In order to enforce this practice we have removed the possibility to push changes directly to the trunk.
+
+##### Pull Request Merges
+
+We wanted to ensure that our codebase remained as clean and organized as possible. By using rebase and merge, we ensure that the commit history remains linear and easy to follow, which makes it much easier to identify and fix any issues that arise down the line.
+
+In order to enforce this practice we have allowed only "rebase and merge" strategy to incorporate changes contained in a pull request.
+
+##### Pull Request Requirements
+To preserve the quality of the code and prevent a significant decrease in test coverage due to changes in the codebase, certain criteria must be met by each pull request prior to merging. Specifically:
+* All tests must succeed. This helps to ensure that the code changes didn't introduce any new bugs or break existing functionality. This is critical for maintaining the integrity of the project and preventing issues from arising in production.
+* A minimum code coverage of 60% for the whole project and patch is achieved. This ensures that any changes is covered by new tests. (checked by Codecov)
+* The analysis of the pull request with [SonarQube](https://www.sonarsource.com/products/sonarqube/) reports no code smells, no bugs, no duplicated code and no technical debt.
+* All commits and the pull request name follows the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/). (checked by [Semantic PRs](https://github.com/marketplace/semantic-prs))
+* No sensitive information is present in the pull request (checked by [GitGuardian](https://www.gitguardian.com)).
+
+##### Dependency updates
+[Renovate](https://github.com/renovatebot/renovate) 
+To ensure that the project remains up-to-date without the need for manual intervention we have decided to use Renovate. Renovate is an automated tool that automatically creates pull requests when it identifies that a dependency is out of date, and if all the requirements above are met, the pull request can be merged (it is automatically merged if it is a MINOR version change).
+
+##### Release
+Each time a pull request is merged in the master a pull request named `chore(main): release x.y.z` is updated with a changelog created from conventional commits by the use of [Release Please](https://github.com/googleapis/release-please) with a new version generated according to semantic versioning. This follows the convention of MAJOR.MINOR.PATCH and helps to ensure that the project is versioned consistently over time and not based on some "magic" new feature.
+
+Once this pull request is merged, the VERSION.txt file is automatically updated, the documentation is generated with [Dokka](https://github.com/Kotlin/dokka), and the new version of the app is released in [Firebase App Distribution](https://firebase.google.com/docs/app-distribution). This automated process helps to ensure that releases are consistent and free from human errors.
 
 ## Installation
 
