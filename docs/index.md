@@ -172,10 +172,87 @@ We identified three subdomains:
 
 ![alt text](../strategic_design/core_domain_chart.png "Core Domain Chart")
 
+#### Bounded contexts
+
+The subdomain **Parking Management** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | Parking Slot Management |
+| Description | Responsible for managing parking slots and their availability. Contains entities such as Parking Slot and Parking Slot State. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Core |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Parking slot, Parking slot status, Range of interest, Vehicle |
+| Business Decisions | Possibility to add parking slots |
+| Inbound Communications | - |
+| Outbound Communication | User Management |
+
+| Name | Parking Slot Occupation Management |
+| Description | Responsible for managing parking slot occupation, including incrementing and freeing parking slots. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Core |
+| Strategic Classification - Business Model | Revenue generator |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Occupied parking slot, Park, Parking slot, Parking slot status, Vehicle, Stop end |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Parking Slot Management |
+
+The subdomain **User Management** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | User Management |
+| Description | responsible for managing user and personal information. Contains entities such as User. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Generic |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Product |
+| Ubiquitous Language | Login, Sign Up, User |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Authentication |
+
+| Name | Authentication |
+| Description | responsible for managing user authentication and authorization. Contains entities such as User Credentials. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Generic |
+| Strategic Classification - Business Model | Revenue generator |
+| Strategic Classification - Evolution | Product |
+| Ubiquitous Language | Login, Sign up, User credentials |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | User Management |
+
+The supporting subdomain **Client** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | User Interface |
+| Description | responsible for handling user interactions and presenting information to the user. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Supporting |
+| Strategic Classification - Business Model | Engagement creator |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Duration of parking, Free parking slot, Login, Occupied parking slot, Park, Parking slot, Parking slots map, Parking slot marker, Parking slot status, Range of interest, Sign up, User, Vehicle, Stop end |
+| Business Decisions | The user interface should be localizable in different languages |
+| Inbound Communications | - |
+| Outbound Communication | Network Communication bounded-context |
+
+| Name | Network Communication |
+| Description | responsible for communication with the backend server, including sending and receiving data. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Supporting |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Commodity |
+| Ubiquitous Language | Frontend, Backend |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Authentication, User Management, Parking slot, Parking slot management |
+
+#### Bounded contexts canvas
+
 
 #### Context Map
 Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
 ![alt text](../strategic_design/cm.png "System context map")
+
 
 ## Design
 
