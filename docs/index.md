@@ -67,6 +67,7 @@ After completing the previous step of knowledge crunching, a dictionary was crea
 | Range of interest | The distance selected by the user in the map to specify the area in which they want to see the parking slots. |
 | Sign up | The operation that allows a user without an account to create one. |
 | User | A person who interacts with the system to find and occupy parking slots. |
+| User credentials | A email-password pair used by the user to log in into the system |
 | Vehicle | The object that a user parks in a parking slot, such as a car, truck, or motorcycle. |
 | System | The union of the backend and the frontend. |
 | Stop end | The time selected by the user to indicate when they will stop occupying a parking slot. |
