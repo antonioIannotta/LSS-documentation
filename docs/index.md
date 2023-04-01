@@ -74,7 +74,7 @@ After completing the previous step of knowledge crunching, a dictionary was crea
 
 ### Use cases
 Following a thorough domain analysis, the use cases and entities involved in this system were identified. The diagram below depicts the use cases for the system: 
-![alt text](../use_case/Use%20case%20diagram.drawio.png "Use cases") \
+![alt text](../use_case/use-cases.drawio.png "Use cases") \
 From the previous image is possible to see how in this system there are two main actors involved in the operations:\
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
 * **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
