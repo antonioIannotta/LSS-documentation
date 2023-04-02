@@ -56,36 +56,43 @@ It is also possible to find a navigable prototype of the GUI [here](https://www.
   <img src="../mockups/login.png"/>
   <figcaption>Login screen mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/sign_up.png"/>
   <figcaption>Sign up screen mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/parking_slots.png"/>
   <figcaption>Parking slots map (Home) mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/change_password.png"/>
   <figcaption>Change password screen mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/parking_slot_occupied.png"/>
   <figcaption>Parking slot occupied mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/parking_slot_occupied_current.png"/>
   <figcaption>Parking slot occupied by current user mockup</figcaption>
 </figure>
+<br/>
 
 <figure align="center">
   <img src="../mockups/parking_slot_free.png"/>
   <figcaption>Parking slot free mockup</figcaption>
 </figure>
+<br/>
 
 ### Ubiquitous language
 After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
