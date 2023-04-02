@@ -151,7 +151,7 @@ After collecting the main use cases for the system, several user stories were de
 * As a user, I want to access the system so that I can find and occupy a parking slot.
 * As a user, I want to occupy a parking slot for a certain duration of time so that I can park my vehicle.
 * As a user, I want to see the status of each parking slot on the map so that I can determine whether it is occupied or available.
-* As a user, I want to extend the duration of my parking if I need to park my vehicle for a longer period of time.
+* As a user, I want to be able to increment the occupation of my current parking slot if I need to park my vehicle for a longer period of time.
 
 Below, you will find the illustrated user stories:
 
