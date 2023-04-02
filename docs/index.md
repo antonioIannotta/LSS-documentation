@@ -74,7 +74,7 @@ After completing the previous step of knowledge crunching, a dictionary was crea
 
 ### Use cases
 Following a thorough domain analysis, the use cases and entities involved in this system were identified. The diagram below depicts the use cases for the system: 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use-cases.drawio.png "Use cases") \
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use-cases.drawio.png?raw=true "Use cases") \
 From the previous image is possible to see how in this system there are two main actors involved in the operations:\
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
 * **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
@@ -104,11 +104,11 @@ Below, you will find the illustrated user stories:
 
 ![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png?raw=true "User stories access")
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20operation_2023-02-07.png "Occupy parking slot")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20operation_2023-02-07.png?raw=true "Occupy parking slot")
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Status%20show_2023-02-07.png "View parking slot statuses")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Status%20show_2023-02-07.png?raw=true "View parking slot statuses")
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20extension_2023-02-07.png "Increment parking slot occupation")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20extension_2023-02-07.png?raw=true "Increment parking slot occupation")
 
 ### Requirements
 
@@ -170,7 +170,7 @@ We identified three subdomains:
 * **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
 * **Client (Supporting)**: this is responsible for handling user interactions, displaying information and sending requests to the backend. It is a supporting subdomain because it provides the user interface and handles user interactions, but it does not contain any business logic related to parking or user management. Its main role is to interact with the other bounded contexts to fulfill user requests and present information to the user.
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main//strategic_design/core_domain_chart.png "Core Domain Chart")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main//strategic_design/core_domain_chart.png?raw=true "Core Domain Chart")
 
 #### Bounded contexts
 
@@ -251,7 +251,7 @@ The supporting subdomain **Client** is composed of two bounded contexts describe
 
 #### Context Map
 Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/strategic_design/cm.png "System context map")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/strategic_design/cm.png?raw=true "System context map")
 
 
 ## Design
