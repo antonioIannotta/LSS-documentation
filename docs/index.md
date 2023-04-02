@@ -51,6 +51,11 @@ In the first version of the system nothing. In future expansions of the system, 
 #### Mockups
 The development team created mockups of the frontend based on the information collected during the interview. These mock-ups were then reviewed and discussed by the team to ensure their accuracy.
 It is also possible to find a navigable prototype of the GUI [here](https://www.figma.com/proto/qgRlc0HsejXutHe3X2PEs6/Smart-Parking?page-id=0%3A1&node-id=1-1022&viewport=-255%2C4%2C0.76&scaling=min-zoom&starting-point-node-id=1%3A1022).
+
+<figure>
+  <img src="../mockups/login.jpg"/>
+  <figcaption>Login screen mockup</figcaption>
+</figure>
 ### Ubiquitous language
 After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
 
