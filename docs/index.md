@@ -378,7 +378,7 @@ Running tests for an Android application often requires the use of an emulator, 
 
 To avoid this scenario, we have decided to write only tests that run without an emulator by making use of [Roboelectric](https://robolectric.org/). This approach reduces the overall testing time reducing also the costs associated with the pipelines.
 
-![alt text](../testing/frontend_coverage.png "Frontend Coverage")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/testing/frontend_coverage.png?raw=true "Frontend Coverage")
 Even with this approach, we were able to reach good coverage in all the modules except for the presentation one, where, since Jetpack Compose is still pretty young, there is still [an issue](https://github.com/jacoco/jacoco/issues/1208) concerning coverage.
 
 ## DevOps Practices
