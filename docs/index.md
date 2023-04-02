@@ -102,7 +102,7 @@ After collecting the main use cases for the system, several user stories were de
 
 Below, you will find the illustrated user stories:
 
-![alt text](../user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
+![alt text](LSS-documentation/user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png "User stories access")
 
 ![alt text](../user%20stories/Parking%20operation_2023-02-07.png "Occupy parking slot")
 
