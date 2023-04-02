@@ -76,6 +76,11 @@ It is also possible to find a navigable prototype of the GUI [here](https://www.
   <img src="../mockups/parking_slot_occupied.jpg"/>
   <figcaption>Parking slot occupied mockup</figcaption>
 </figure>
+
+<figure>
+  <img src="../mockups/parking_slot_occupied_current.jpg"/>
+  <figcaption>Parking slot occupied by current user mockup</figcaption>
+</figure>
 ### Ubiquitous language
 After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
 
