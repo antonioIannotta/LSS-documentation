@@ -8,8 +8,8 @@ nav_order: 5
 
 ## Architecture and implementation
 The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and the backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
-A first general consideration is meaningful considering the separation between the logic/storage component (the backend) and the logic/presentation component (the frontend). This separation has been the result of a deep analysis and it resulted as the best choise because of the possibility to have independence in both architecture and implementation of each part. More specifically, adopting this philosophy of separation of concerns at the architectural side has been possible to choose the database that turned out to be the best for us and to choose the web service framework totally free.
-It's important to have a deeper view on both side, frontend and backend, in order to better analyze their own architecture.
+A first general consideration is meaningful considering the separation between the logic/storage component (the backend) and the logic/presentation component (the frontend). This separation has been the result of deep analysis and it resulted as the best choice because of the possibility to have independence in both architecture and implementation of each part. More specifically, adopting this philosophy of separation of concerns on the architectural side has been possible to choose the database that turned out to be the best for us and to choose the web service framework totally free.
+It's important to have a deeper view on both sides, frontend and backend, in order to better analyze their own architecture.
 
 ### Backend
 The backend is composed by the database and by the software that is in charge to define the logic behind the access to the database. More specifically there are two main component:
