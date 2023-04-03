@@ -92,3 +92,19 @@ Kotlin Serialization is a serialization library that allows developers to serial
 ### KotlinX DateTime
 kotlinx-datetime was chosen as the date and time library for the Android app. We chose this library because, like Koin, Kotlin Serialization, and Jetpack Compose, it offers multiplatform support and also is deeply integrated with the Kotlin ecosystem and so we don't have to write serializers and deserializers for dates.
 
+### Retrofit
+Retrofit was chosen as the networking library for the Android app. It is a networking library for Android that simplifies the process of making HTTP requests and handling responses. It allows us to write data sources easily since we only have to annotate the fields in the methods.
+
+```kotlin
+@GET("parking-slot/")
+suspend fun getParkingSlots(
+    @Query("latitude")
+    latitude: Double,
+    @Query("longitude")
+    longitude: Double,
+    @Query("radius")
+    radius: Double,
+): List<ParkingSlotDto>
+```
+<p align="center">Retrofit - getParkingSlots method</p>
+
