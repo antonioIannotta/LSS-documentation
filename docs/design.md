@@ -208,3 +208,11 @@ In this layer we have decided to use the MVVM design pattern. MVVM separates the
   <figcaption>Router</figcaption>
 </figure>
 <br/>
+
+In the UML Class Diagram above the `Router` is shown, it exposes two methods for navigating to a specific screen and dismissing the current screen and an observable containing the navigation requests ( `RouterCommand` ). This observable can be listened by the system to navigate to a specific screen when it's needed.
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_app_alert.png?raw=true"/>
+  <figcaption>App Alert</figcaption>
+</figure>
+<br/>
