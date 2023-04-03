@@ -9,7 +9,7 @@ nav_order: 3
 ## Business requirements
 | ID | Requirement |
 | -- | ----------- |
-| BR1 | The application should provide an easy way for parking slot owners to manage their slots.
+| BR1 | The application should provide an easy way for parking slot owners to manage their slots. |
 
 ## User requirements
 
