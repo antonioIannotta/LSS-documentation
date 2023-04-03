@@ -140,3 +140,38 @@ In the above UML Class Diagram there are several classes used to represent the u
   <figcaption>Parking Slot Repository</figcaption>
 </figure>
 <br/>
+
+##### Use Cases
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/base_usecases.png?raw=true"/>
+  <figcaption>Base use cases</figcaption>
+</figure>
+<br/>
+
+To simplify the creation of use cases we have created some abstract classes from which all the use cases inherits.
+* `UseCase`: a non-failable use case that always returns in a non-asynchronous manner
+* `AsyncUseCase`: a non-failable asynchronous use case
+* `AsyncFailableUseCase`: a failable and asynchronous use case (the error is always the `Left` type of `Either`)
+
+We have identified the following use cases for the user management subdomain:
+* `GetAuthState`: provides the `AuthState` (whether an user is currently logged in or not);
+* `GetUser`: provides information about the currently logged in user;
+* `SignUpUser`: signs up a new user given email, name and password;
+* `LoginUser`: logs in a user given user credentialn;
+* `ChangeUserPassword`: changes the current password of the user with a different one;
+* `LogoutUser`: logs out the currently logged in user;
+* `DeleteUser`: deletes the logged in user.
+
+Some of the above use cases use the following auxiliary use cases for data validation:
+* `ValidateUserName`: checks that the user name is valid;
+* `ValidateUserEmail`: checks that the user email is valid according to [RFC822](https://www.ietf.org/rfc/rfc0822.txt?number=822);
+* `ValidateUserPassword`: checks that the user password is valid.
+
+Instead, for the parking slot management subdomain we have identified the following use cases:
+* `FindParkingSlots`: finds all the parking slots within a certain radius from a position (`GeoPosition`);
+* `ViewParkingSlot`: provides information about a single parking slot identified by a given id;
+* `ViewCurrentParkingSlot`: provides information about the parking slot currently occupied by the user;
+* `OccupyParkingSlot`: occupies a parking slot if it is not currently occupied;
+* `IncrementParkingSlotOccupation`: increments the occupation of the parking slot currently occupied by the user;
+* `FreeParkingSlot`: frees the parking slot currently occupied by the user, if the user isn't occupying a parking slot it does nothing.
+
