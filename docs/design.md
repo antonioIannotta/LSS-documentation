@@ -229,3 +229,16 @@ In the UML Class Diagram above the `Router` is shown, it exposes two methods for
 The `parkingslot` package contains:
 * **Parking Slots Screen**: a screen with a map showing the nearby area with all the parking slots; 
 * **Parking Slot Screen**: a screen that shows all the information about a specific parking slot.
+
+##### User
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_user.png?raw=true"/>
+  <figcaption>User Management Subdomain Presentation Layer UML Class Diagram</figcaption>
+</figure>
+<br/>
+
+The `user` package contains:
+* **Login Screen**: the screen that allows the user to log in; 
+* **Sign Up Screen**: the screen that allows a new user to sign up;
+* **Change Password Screen**: the screen that allows the user to change the password.
