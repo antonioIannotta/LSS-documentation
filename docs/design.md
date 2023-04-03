@@ -127,3 +127,16 @@ In the above UML Class Diagram there are several classes used to represent the u
 * **AuthState**: whether an user is currently logged in or not.
 
 <br/>
+
+##### Repositories
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/repositories_user.png?raw=true"/>
+  <figcaption>User Repository</figcaption>
+</figure>
+<br/>
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/repositories_parking_slot.png?raw=true"/>
+  <figcaption>Parking Slot Repository</figcaption>
+</figure>
+<br/>
