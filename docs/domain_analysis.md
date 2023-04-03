@@ -45,49 +45,49 @@ In the first version of the system nothing. In future expansions of the system, 
 The development team created mockups of the frontend based on the information collected during the interview. These mock-ups were then reviewed and discussed by the team to ensure their accuracy.
 It is also possible to find a navigable prototype of the GUI [here](https://www.figma.com/proto/qgRlc0HsejXutHe3X2PEs6/Smart-Parking?page-id=0%3A1&node-id=1-1022&viewport=-255%2C4%2C0.76&scaling=min-zoom&starting-point-node-id=1%3A1022).
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/login.png?raw=true"/>
   <figcaption>Login screen mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/sign_up.png?raw=true"/>
   <figcaption>Sign up screen mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/parking_slots.png?raw=true"/>
   <figcaption>Parking slots map (Home) mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/change_password.png?raw=true"/>
   <figcaption>Change password screen mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/parking_slot_occupied.png?raw=true"/>
   <figcaption>Parking slot occupied mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/parking_slot_occupied_current.png?raw=true"/>
   <figcaption>Parking slot occupied by current user mockup</figcaption>
 </figure>
 <br/>
 <br/>
 
-<figure>
+<figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/mockups/parking_slot_free.png?raw=true"/>
   <figcaption>Parking slot free mockup</figcaption>
 </figure>
