@@ -216,3 +216,16 @@ In the UML Class Diagram above the `Router` is shown, it exposes two methods for
   <figcaption>App Alert</figcaption>
 </figure>
 <br/>
+
+
+##### Parking Slot
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_parking_slot.png?raw=true"/>
+  <figcaption>Parking Slot Management Subdomain Presentation Layer UML Class Diagram</figcaption>
+</figure>
+<br/>
+
+The `parkingslot` package contains:
+* **Parking Slots Screen**: a screen with a map showing the nearby area with all the parking slots; 
+* **Parking Slot Screen**: a screen that shows all the information about a specific parking slot.
