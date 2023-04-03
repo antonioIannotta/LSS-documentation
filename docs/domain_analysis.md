@@ -1,0 +1,302 @@
+---
+title: Domain Analysis
+has_children: false
+nav_order: 2
+---
+
+# Domain Analysis
+
+## Knowledge crunching
+
+In order to deal with the complexity of the project there have been a continuous exchange of information with the stakeholders. More specifically, the information related to the system and the knowledge crunching process itself have been recovered through interviews.
+
+* **How does a user access the system?**\
+User access to the system depends on whether they are accessing the system for the first time or already have an account:
+    - **Sign up**: this operation allows a user without an account to create one;
+    - **Login**: this operation enables a user with an existing account to access the system.
+
+* **What is a park?**\
+In this system, park refers to the action of a user placing their vehicle into a single parking slot.
+
+* **What is a parking slot?**\
+A parking slot is the place where a person can park its own vehicle
+
+* **What does it happen when a user wants to park its vehicle?**\
+When a user sees a free parking slot they occupy it with its vehicle. After that they report the occupation to the system by selecting the hour in which the stop will end.
+
+* **How can a user see the status of parking slots around the city?**\
+The application displays a map with all parking slots in a certain area, determined by the user's location and a specified range of interest. Each parking slot is shown with a marker in one of three possible colors: 
+    - **red**: the parking slot is occupied
+    - **orange**: the parking slot will be free in ten minutes
+    - **green**: the parking slot is free
+
+* **How does a user select the distance of interest in which he can see the parking slots?**\
+The user can select the distance of interest specifying a range in which he wants to see the parking slots status.
+
+* **Can a user increase their parking time?**\
+Users can increase the duration of their parking anytime. However, they can only specify a time after the previously selected end time (it is not possible to shorten the parking time).
+* **Can a user free their parking slot anytime?**\
+Yes, a user can free its current occupied parking slot anytime by using the app.
+
+* **What does it happen if a user occupies a parking slot after the stop end?**\
+In the first version of the system nothing. In future expansions of the system, where a fee will be requested to park, the fee will be higher (maybe 5x) if they don't remove the vehicle after the stop end.
+
+### Mockups
+The development team created mockups of the frontend based on the information collected during the interview. These mock-ups were then reviewed and discussed by the team to ensure their accuracy.
+It is also possible to find a navigable prototype of the GUI [here](https://www.figma.com/proto/qgRlc0HsejXutHe3X2PEs6/Smart-Parking?page-id=0%3A1&node-id=1-1022&viewport=-255%2C4%2C0.76&scaling=min-zoom&starting-point-node-id=1%3A1022).
+
+<figure>
+  <img src="../mockups/login.png"/>
+  <figcaption>Login screen mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/sign_up.png"/>
+  <figcaption>Sign up screen mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/parking_slots.png"/>
+  <figcaption>Parking slots map (Home) mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/change_password.png"/>
+  <figcaption>Change password screen mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/parking_slot_occupied.png"/>
+  <figcaption>Parking slot occupied mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/parking_slot_occupied_current.png"/>
+  <figcaption>Parking slot occupied by current user mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+<figure>
+  <img src="../mockups/parking_slot_free.png"/>
+  <figcaption>Parking slot free mockup</figcaption>
+</figure>
+<br/>
+<br/>
+
+## Ubiquitous language
+After completing the previous step of knowledge crunching, a dictionary was created with the aim of establishing a common language for the entire system's development. The dictionary comprises the following terms:
+
+| Term | Definition |
+| ---- | ---------- |
+| Backend | The part of the system that communicates with the frontend via APIs and reads and writes data into a database. |
+| Duration of parking | The length of time a user occupies a parking slot. |
+| Free parking slot | A parking slot that is currently not occupied by a vehicle. |
+| Frontend | The part of the system that the user interacts with directly, including the user interface and any client-side logic. |
+| Login | The operation that enables a user with an existing account to access the system. |
+| Occupied parking slot | A parking slot that is currently occupied by a vehicle. |
+| Park | The action of a user placing their vehicle into a single parking slot. |
+| Parking slot | The place where a user can park its own vehicle. |
+| Parking slots map | A map that shows all the parking slots nearby with a marker. |
+| Parking slot marker | A marker used to identify the position of a parking slot in a map, it can be colored in three different ways: green if the parking slot is free, orange if it will be free in ten minutes, red if none of the other cases apply. |
+| Parking slot status | The current status of the parking slot: occupied or not occupied. |
+| Range of interest | The distance selected by the user in the map to specify the area in which they want to see the parking slots. |
+| Sign up | The operation that allows a user without an account to create one. |
+| User | A person who interacts with the system to find and occupy parking slots. |
+| User credentials | A email-password pair used by the user to log in into the system |
+| Vehicle | The object that a user parks in a parking slot, such as a car, truck, or motorcycle. |
+| System | The union of the backend and the frontend. |
+| Stop end | The time selected by the user to indicate when they will stop occupying a parking slot. |
+
+## Use cases
+Following a thorough domain analysis, the use cases and entities involved in this system were identified. The diagram below depicts the use cases for the system: 
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use-cases.drawio.png?raw=true "Use cases") \
+From the previous image is possible to see how in this system there are two main actors involved in the operations:\
+* **User**: the user is the actor that is intended to use the application in order to look for free parking slot, to set an end stop time and to increment this time.
+* **Client**: the client is the actor in charge to handle all the requests that are made by the user. More specifically the client is intended to handle the operation of registration and access to the system. The client is also in charge to handle a proper visualization of the status of the parking slots. It's also the client that is in charge to handle the setting of the end stop time or the increment of this time itself. \
+
+
+It's possible to notice, from the picture, the following operations:
+* **User sign up**: The user creates an account with name, email, and password, to access the system.
+* **User login**: The user logs in to their account with their username and password to access the system.
+* **User password change**: The user changes the password used to access the system by providing the current one and the new one.
+* **User deletion**: The user requests the deletion of all their personal information from the system.
+* **User logout**: The user logs out their account from the frontend.
+* **View parking slots**: The user views a map of available parking slots near their current location. The map shows the markers of the parking slots.
+* **View parking slot**: The user views the location and current status of a specific parking slot.
+* **View current parking slot**: The user views the location and current status of the parking slot they are currently occupying.
+* **Occupy parking slot**: The user occupies a parking slot until stop end.
+* **Increment parking slot occupation**: The user sets a new stop end for the parking slot currently occupied.
+* **Free parking slot**: The user frees the parking slot currently occupied.
+
+## User stories
+After collecting the main use cases for the system, several user stories were developed to describe the system's functionality under specific circumstances. More specifically the user stories illustrated are the followings:
+* As a user, I want to access the system so that I can find and occupy a parking slot.
+* As a user, I want to occupy a parking slot for a certain duration of time so that I can park my vehicle.
+* As a user, I want to see the status of each parking slot on the map so that I can determine whether it is occupied or available.
+* As a user, I want to be able to increment the occupation of my current parking slot if I need to park my vehicle for a longer period of time.
+
+Below, you will find the illustrated user stories:
+
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png?raw=true "User stories access")
+
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20operation_2023-02-07.png?raw=true "Occupy parking slot")
+
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Status%20show_2023-02-07.png?raw=true "View parking slot statuses")
+
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20extension_2023-02-07.png?raw=true "Increment parking slot occupation")
+
+
+## Requirements
+
+### Business requirements
+| ID | Requirement |
+| -- | ----------- |
+| BR1 | The application should provide an easy way for parking slot owners to manage their slots.
+
+### User requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| UR1 | Users should be able to create a new account by providing name, email, and password. |
+| UR2 | Users should be able to log in to their account using their email and password. |
+| UR3 | Users should be able to change their password. |
+| UR4 | Users should be able to delete their account and have all associated data removed from the system. |
+| UR5 | Users should be able to search for available parking slots near their current location. |
+| UR6 | Users should be able to reserve a parking slot for a specific time period. |
+| UR7 | Users should be able to extend the occupation of their parking slot. |
+| UR8 | Users should be able to terminate parking slot occupation. |
+
+### Functional requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| FR1 | The system should allow users to register by providing name, email and password. |
+| FR2 | The system should authenticate registered users by verifying their login credentials (email and password). |
+| FR3 | The system should allow users to change their password at any time. |
+| FR4 | The system should allow users to delete their account. |
+| FR5 | The system should allow users to logout. |
+| FR6 | The system should allow users to occupy a parking slot by selecting it from a map and specifying the end of stop. |
+| FR7 | The system should allow users to extend the occupation of a parking slot for a specified period. |
+| FR8 | The system should show to the user the state of the parking slots nearby him. |
+| FR9 | The system should show to the user the parking slot currently occupied by him. |
+| FR10 | The system should allow users to terminate the occupation of a parking slot. |
+
+### Non functional requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| NFR1 | The system should be easy to maintain and update. |
+| NFR2 | The system should be able to scale horizontally in response to changing user demand. |
+| NFR3 | The system response times should be fast enough to provide a smooth user experience. |
+
+### Implementation requirements
+
+| ID | Requirement |
+| -- | ----------- |
+| NFR1 | The system should be designed using a modular architecture, following the principles of Domain-Driven Design (DDD). This includes clearly defined domain entities, services, and repositories. |
+| NFR2 | The application should provide a RESTful API for accessing and modifying data. The API should use standard HTTP methods. |
+| NFR3 | The deployment process of the backend and of the frontend should be automated. |
+
+
+
+## Strategic Design
+
+### Subdomains
+In Domain Driven Design in order to better manage the complexity of the domain you want to analyze, it is advisable to thoroughly explore the problem-domain by identifying subdomains.
+We identified three subdomains:
+* **Parking Management (Core)**: this is responsible for managing parking slots, their availability, and their occupancy status. It contains entities such as Parking Slot and Parking Slot State. It is a core subdomain because it contains the main entities and business logic related to the problem: this is the central domain of the application.
+* **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
+* **Client (Supporting)**: this is responsible for handling user interactions, displaying information and sending requests to the backend. It is a supporting subdomain because it provides the user interface and handles user interactions, but it does not contain any business logic related to parking or user management. Its main role is to interact with the other bounded contexts to fulfill user requests and present information to the user.
+
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main//strategic_design/core_domain_chart.png?raw=true "Core Domain Chart")
+
+### Bounded contexts
+
+The subdomain **Parking Management** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | Parking Slot Management |
+| Description | Responsible for managing parking slots and their availability. Contains entities such as Parking Slot and Parking Slot State. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Core |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Parking slot, Parking slot status, Range of interest, Vehicle |
+| Business Decisions | Possibility to add parking slots |
+| Inbound Communications | - |
+| Outbound Communication | User Management |
+
+| Name | Parking Slot Occupation Management |
+| Description | Responsible for managing parking slot occupation, including incrementing and freeing parking slots. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Core |
+| Strategic Classification - Business Model | Revenue generator |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Occupied parking slot, Park, Parking slot, Parking slot status, Vehicle, Stop end |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Parking Slot Management |
+
+The subdomain **User Management** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | User Management |
+| Description | responsible for managing user and personal information. Contains entities such as User. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Generic |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Product |
+| Ubiquitous Language | Login, Sign Up, User |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Authentication |
+
+| Name | Authentication |
+| Description | responsible for managing user authentication and authorization. Contains entities such as User Credentials. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Generic |
+| Strategic Classification - Business Model | Revenue generator |
+| Strategic Classification - Evolution | Product |
+| Ubiquitous Language | Login, Sign up, User credentials |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | User Management |
+
+The supporting subdomain **Client** is composed of two bounded contexts described in the following bounded context canvases:
+
+| Name | User Interface |
+| Description | responsible for handling user interactions and presenting information to the user. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Supporting |
+| Strategic Classification - Business Model | Engagement creator |
+| Strategic Classification - Evolution | Custom built |
+| Ubiquitous Language | Duration of parking, Free parking slot, Login, Occupied parking slot, Park, Parking slot, Parking slots map, Parking slot marker, Parking slot status, Range of interest, Sign up, User, Vehicle, Stop end |
+| Business Decisions | The user interface should be localizable in different languages |
+| Inbound Communications | - |
+| Outbound Communication | Network Communication bounded-context |
+
+| Name | Network Communication |
+| Description | responsible for communication with the backend server, including sending and receiving data. |
+| Domain Roles | execution context |
+| Strategic Classification - Domain | Supporting |
+| Strategic Classification - Business Model | - |
+| Strategic Classification - Evolution | Commodity |
+| Ubiquitous Language | Frontend, Backend |
+| Business Decisions | - |
+| Inbound Communications | - |
+| Outbound Communication | Authentication, User Management, Parking slot, Parking slot management |
+
+
+### Context Map
+Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/strategic_design/cm.png?raw=true "System context map")
+
