@@ -108,3 +108,23 @@ suspend fun getParkingSlots(
 ```
 <p align="center">Retrofit - getParkingSlots method</p>
 
+
+### Google Maps SDK
+We used the Google Maps SDK for showing the parking slots map. The Google Maps SDK works by using a token that must be included in the app source code. Inserting it in the repository was too risky, in fact, someone could just take it and use it in their projects so we stored it in Github Secrets and added it in the `local.properties` file before building the app.
+
+```
+GoogleMap(
+    cameraPositionState = cameraPositionState,
+    modifier = modifier,
+    properties = MapProperties(
+        mapType = MapType.NORMAL,
+        minZoomPreference = 17f,
+        isMyLocationEnabled = true,
+    ),
+    uiSettings = MapUiSettings(
+        indoorLevelPickerEnabled = false,
+        mapToolbarEnabled = false,
+    ),
+)
+```
+<p align="center">Google Maps SDK usage</p>
