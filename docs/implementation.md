@@ -70,3 +70,25 @@ Column(
 ```
 <p align="center">Jetpack Compose - Login Form</p>
 
+### Koin
+In the design chapter, we decided to use the service locator pattern. A key enabler of this pattern is a dependency injection framework: service-locator pattern can be pretty risky: if you forget to declare a dependency the app will crash at runtime. To avoid that, Koin provides a lot of utilities to test that all the dependencies are registered in tests to avoid bugs sneaking into production.
+
+```kotlin
+koinApplication {
+    modules(domainModule)
+    modules(presentationModule)
+    checkModules {
+        withInstance<UserRepository>(mockk())
+        withInstance<ParkingSlotRepository>(mockk())
+    }
+}
+```
+<p align="center">Koin Dependency Testing</p>
+
+### KotlinX Serialization
+Kotlin Serialization is a serialization library that allows developers to serialize Kotlin data classes to and from JSON. It is enough to annotate Kotlin data classes as `Serializable` to make them readable from JSON, this, paired with the usage of DTOs allowed us to write very little code for it.
+
+
+### KotlinX DateTime
+kotlinx-datetime was chosen as the date and time library for the Android app. We chose this library because, like Koin, Kotlin Serialization, and Jetpack Compose, it offers multiplatform support and also is deeply integrated with the Kotlin ecosystem and so we don't have to write serializers and deserializers for dates.
+
