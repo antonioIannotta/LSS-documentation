@@ -30,3 +30,43 @@ Here we will discuss the implementation details of the frontend. The frontend us
 * [Retrofit](https://square.github.io/retrofit/);
 * [Google Maps SDK](https://developers.google.com/maps/documentation/android-sdk/maps-compose).
 In the following paragraphs, we will try to present each one of these libraries and say why we think each one is a good fit for the app.
+
+### Jetpack Compose
+Jetpack Compose was chosen as the UI toolkit for building the app. It allows developers to get rid of XML layout files and use newer, easier-to-test declarative UIs. XML layouts forced us to use a lot of different files, and deal with lower-level stuff like view id. Moreover, even if it's pretty young it is greatly integrated with the Android ecosystem and already offers wrappers for all the common functionality needed. Finally, even if it's not needed for this project, it provides multiplatform support, so it can be deployed also to Web and Desktop platforms.
+
+```kotlin
+Column(
+    modifier = Modifier
+        .padding(32.dp)
+        .fillMaxHeight(),
+    verticalArrangement = Arrangement.spacedBy(
+        10.dp,
+        alignment = Alignment.CenterVertically
+    )
+) {
+    Text(
+        text = stringResource(R.string.screen_title_login),
+        fontSize = 40.sp,
+    )
+
+    EmailTextField(
+        uiState = uiState,
+        onEmailChange = onEmailChange
+    )
+    PasswordTextField(
+        uiState = uiState,
+        onPasswordChange = onPasswordChange
+    )
+    SubmitButton(
+        uiState = uiState,
+        onSubmit = onSubmit
+    )
+
+    SignUpButton(
+        uiState = uiState,
+        onSignUpClick = onSignUpClick
+    )
+}
+```
+<p align="center">Jetpack Compose - Login Form</p>
+
