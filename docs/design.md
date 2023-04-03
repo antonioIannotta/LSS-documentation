@@ -101,3 +101,29 @@ By separating the frontend into distinct layers, we can ensure that the differen
 
 
 _In the following UML Class Diagrams it is possible to find the `async` keyword: it means that the method doesn't return immediately: it is asynchronous._
+
+#### Domain Layer
+The domain layer is furtherly split down in `user` and `parking slot` packages to isolate the DDD subdomains.
+
+##### Entities
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/entities_parking_slot.png?raw=true"/>
+  <figcaption>Parking slot package entities</figcaption>
+</figure>
+<br/>
+In the above UML Class Diagram there are multiple entities used to represent the parking slot. This is identified by an `id` and contains information about its position and its state (whether it's occupied or not).
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/entities_parking_slot.png?raw=true"/>
+  <figcaption>User package entities</figcaption>
+</figure>
+<br/>
+In the above UML Class Diagram there are several classes used to represent the user. In particular:
+
+* **User**: a user registered in the system;
+* **NewUser**: a new user to be added in the system;
+* **UserCredentials**: the credentials to be used to login in the system;
+* **AuthState**: whether an user is currently logged in or not.
+
+<br/>
