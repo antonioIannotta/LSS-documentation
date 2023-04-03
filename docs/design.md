@@ -175,3 +175,16 @@ Instead, for the parking slot management subdomain we have identified the follow
 * `IncrementParkingSlotOccupation`: increments the occupation of the parking slot currently occupied by the user;
 * `FreeParkingSlot`: frees the parking slot currently occupied by the user, if the user isn't occupying a parking slot it does nothing.
 
+
+#### Data Layer
+In this layer we find the implementation of the repositories, in our system repositories act as mediators between different data sources such as local authentication token storage and backend API.
+This allows for better decoupling and testability since repository implementation doesn't need to access the APIs exposed by the underlying system unlike the data sources.
+To further decouple the domain layer from the data layer we make data sources return data transfer objects (DTOs). DTOs are simple objects that contain only the data needed to read information from the backend. Then these objects are mapped by the repositories into domain layer entities. 
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/datasources.png?raw=true"/>
+  <figcaption>Data sources UML Class Diagram</figcaption>
+</figure>
+<br/>
+
+In the above class diagram we can see all the data sources used by repositories, for brevity not all DTOs are shown. The fact that we are looking at classes made to interact with the backend (`ParkingSlotDataSource`, `UserDataSource`) is clear from the `Body` suffix in some method arguments: this is the body of the requests to be made to the backend. The usage of data sources and DTOs allows us to hide these details. 
