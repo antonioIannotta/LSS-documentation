@@ -94,7 +94,7 @@ In order to talk about the implementation of the parking slot operations inside 
 The frontend follows the Clean Architecture with a separation into four main layers:
 * The **domain layer** contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain layer does not depend on any other layers.
 * The **data layer** is responsible for managing the interaction with local storage, backend API and system services. It contains data sources, and repositories implementation. This layer only depends on the domain layer.
-* The **presentation layer** contains the user interface components and provides the main user-facing features of the app. This module only depends on the domain layer.
+* The **presentation layer** contains the user interface components. This module only depends on the domain layer.
 * The **app layer** depends on all the three previous layers and it is responsible for the launch of the app.
 
 By separating the frontend into distinct layers, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data layer and the presentation layer only depends on interfaces (Dependency Inversion Principle). To give the proper implementation to the layers that needs it we will use the service locator pattern.
@@ -188,3 +188,12 @@ To further decouple the domain layer from the data layer we make data sources re
 <br/>
 
 In the above class diagram we can see all the data sources used by repositories, for brevity not all DTOs are shown. The fact that we are looking at classes made to interact with the backend (`ParkingSlotDataSource`, `UserDataSource`) is clear from the `Body` suffix in some method arguments: this is the body of the requests to be made to the backend. The usage of data sources and DTOs allows us to hide these details. 
+
+#### Presentation Layer
+This layer contains all the user interface components, and, like the other layers, is splitted in `user` and `parking slot` packages. 
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/mvvm.png?raw=true"/>
+  <figcaption>MVVM</figcaption>
+</figure>
+<br/>
