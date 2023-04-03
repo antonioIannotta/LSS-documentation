@@ -21,3 +21,12 @@ Considering the implementation aspects each module is a single gradle module. Mo
     - **parking-slot**: the submodule related to the operations for the parking-slot management.
 
 
+## Frontend
+Here we will discuss the implementation details of the frontend. The frontend uses a great number of libraries and frameworks among which we can find:
+* [Jetpack Compose](https://developer.android.com/jetpack/compose);
+* [Koin](https://insert-koin.io);
+* [KotlinX Serialization](https://github.com/Kotlin/kotlinx.serialization);
+* [KotlinX DateTime](https://github.com/Kotlin/kotlinx-datetime);
+* [Retrofit](https://square.github.io/retrofit/);
+* [Google Maps SDK](https://developers.google.com/maps/documentation/android-sdk/maps-compose).
+In the following paragraphs, we will try to present each one of these libraries and say why we think each one is a good fit for the app.
