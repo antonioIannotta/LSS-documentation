@@ -197,3 +197,14 @@ This layer contains all the user interface components, and, like the other layer
   <figcaption>MVVM</figcaption>
 </figure>
 <br/>
+
+In this layer we have decided to use the MVVM design pattern. MVVM separates the concerns of the UI presentation and the business logic:
+* the view is responsible for displaying the UI
+* the model encapsulate the app's data;
+* the view-model acts as the intermediary between the view and the model. This separation makes the code easier to maintain and test. It furthermore improves testability by allowing us to test the business logic without having to test the UI components. That means there is no need for simulator, emulator or real devices to test the business logic.
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_router.png?raw=true"/>
+  <figcaption>Router</figcaption>
+</figure>
+<br/>
