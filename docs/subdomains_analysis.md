@@ -12,7 +12,7 @@ We identified three subdomains:
 * **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
 * **Client (Supporting)**: this is responsible for handling user interactions, displaying information and sending requests to the backend. It is a supporting subdomain because it provides the user interface and handles user interactions, but it does not contain any business logic related to parking or user management. Its main role is to interact with the other bounded contexts to fulfill user requests and present information to the user.
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main//strategic_design/core_domain_chart.png?raw=true "Core Domain Chart")
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/strategic_design/core_domain_chart.png?raw=true "Core Domain Chart")
 
 ## Bounded contexts
 
