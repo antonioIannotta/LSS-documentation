@@ -4,7 +4,6 @@ has_children: false
 nav_order: 6
 ---
 
-
 # DevOps Practices
 
 In order to provide a well-organized development process, two separate repositories have been created on Github for the frontend and backend of the project. By creating isolated repositories, each team can manage its own codebase and pipelines, without interfering with the other. This ensures that each team is able to focus on its repository allowing the frontend and the backend to grow independently.

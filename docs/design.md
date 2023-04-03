@@ -91,19 +91,13 @@ In order to talk about the implementation of the parking slot operations inside 
 * **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as constuctor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provide the results that are used into the framework package to provide the responds to the incoming requests from the client. It's important to notice how, implementing the Interface adapter in this way, the use cases remains independent from it and, in case of change of the Database, will only be necessary to change the constructor argument and some operation inside this class. This solution has been thought to be aligned to the SoC principle and, furthermore, to be coherent with the previous domain analysis.
 
 ### Frontend
-The frontend follows the Clean Architecture with a separation into four main modules:
-* The domain module contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain module does not depend on any other modules.
-* The data module is responsible for managing the interaction with local storage, backend API and system services. It contains data sources, and repositories implementation. This module only depends on the domain module.
-* The presentation module contains the user interface components and provides the main user-facing features of the app. This module only depends on the domain module.
-* The app module depends on all the three previous modules and it is responsible for the launch of the app.
+The frontend follows the Clean Architecture with a separation into four main layers:
+* The **domain layer** contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain layer does not depend on any other layers.
+* The **data layer** is responsible for managing the interaction with local storage, backend API and system services. It contains data sources, and repositories implementation. This layer only depends on the domain layer.
+* The **presentation layer** contains the user interface components and provides the main user-facing features of the app. This module only depends on the domain layer.
+* The **app layer** depends on all the three previous layers and it is responsible for the launch of the app.
 
-By separating the frontend into distinct modules, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data module and the presentation module only depends on interface (Dependency Inversion Principle). To give the proper implementation to the modules that needs it we have used the service locator pattern.
+By separating the frontend into distinct layers, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data layer and the presentation layer only depends on interfaces (Dependency Inversion Principle). To give the proper implementation to the layers that needs it we will use the service locator pattern.
 
-#### Domain Module
-Divisione nei due moduli
-Entities
-Use Cases
-#### Data Module
-Data Source
-#### Presentation Module
-MVVM
+
+_In the following UML Class Diagrams it is possible to find the `async` keyword: it means that the method doesn't return immediately: it is asynchronous._
