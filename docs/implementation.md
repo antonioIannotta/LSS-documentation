@@ -13,7 +13,7 @@ The technologies we use for the implementation of the backend are the following:
 * [MongoDB](https://www.mongodb.com/): this is the NoSQL databse we choose for the purpose of this application.
 * [Gradle](https://gradle.org/): as build automation tool we choose Gradle.
 
-In the *Design* section we reported that the application is composed of two modules: one related to the **user** and the other one to the **parking slot**.\ 
+In the *Design* section we reported that the application is composed of two modules: one related to the **user** and the other one to the **parking slot**. \
 The user operations are all those operations related to the access of the user to the system. Parking slot operations are all those operations that are related to the management of parking slot status. These operations are mapped into two submodules for the implementation side corresponding to two several collections into the database.
 Considering the implementation aspects each module is a single Gradle module. More specifically there are three modules:
 * **Parking system**: this is the main module, in which there's the access point for the application and the framework layer from the previous paragraph. 
@@ -70,7 +70,7 @@ Column(
 ```
 <p align="center">Jetpack Compose - Login Form</p>
 
-### Koin
+### Koin
 In the design chapter, we decided to use the service locator pattern. A key enabler of this pattern is a dependency-injection-framework. The service-locator pattern can be risky: if you forget to declare a dependency the app will crash at runtime. To avoid that, Koin provides a lot of utilities to test that all the dependencies are registered in tests to avoid bugs sneaking into production.
 
 ```kotlin
@@ -85,7 +85,7 @@ koinApplication {
 ```
 <p align="center">Koin Dependency Testing</p>
 
-### KotlinX Serialization
+### KotlinX Serialization
 Kotlin Serialization is a library that allows developers to serialize Kotlin data classes to and from JSON. It is enough to annotate Kotlin data classes as `Serializable` to make them readable from JSON. This aspect, paired with the usage of DTOs, allows us to write very little code for it.
 
 
@@ -109,10 +109,10 @@ suspend fun getParkingSlots(
 <p align="center">Retrofit - getParkingSlots method</p>
 
 
-### Google Maps SDK
+### Google Maps SDK
 We use the Google Maps SDK for showing the parking slots map. The Google Maps SDK works by using a token that must be included in the app source code. Inserting it in the repository is too risky, as someone could simply take it and use it in their projects. This is why we store it in Github Secrets and add it with the pipelines to the `local.properties` file before building the app.
 
-```
+```kotlin
 GoogleMap(
     cameraPositionState = cameraPositionState,
     modifier = modifier,
