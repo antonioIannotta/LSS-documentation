@@ -10,40 +10,41 @@ nav_order: 5
 The system is composed of a frontend and a backend. The Android app serves as the frontend, responsible for managing user interactions, while the backend ensures consistent parking slot data and managing sign-up/login procedures. \ This separation between the frontend and the backend allows us to swap either component at any time without affecting the other. Moreover, it permits to introduce new clients, written in different programming languages, such as an iOS app developed using Swift. To fully understand the architecture of our system, it is necessary to take a closer look at both the frontend and backend.
 
 ### Backend
-The backend is composed by the database and by the software that is in charge to define the logic behind the access to the database. More specifically there are two main component:
-* **Database** two different databases was used for the application, one for the user authentication bounded context and one for the parking slot management bounded context. Databases was each stored on MongoDB Cloud.
+The backend is composed of the database and the software that is in charge to define the logic behind the access to the database. More specifically, there are two main components:
+* **Database** two different databases are used for the application, one for the user authentication bounded context and one for the parking slot management bounded context. Both databases use MongoDB Atlas.
 * **Web Service**
-While there's not too much to say about the database it's important to talk about the web service. There are two main routes:
+While there's not a lot to say about the database it's important to talk about the web service. It exposes two main routes:
 * **/user**
 * **/parking-slot**
-Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update from/to the database the infromation related to the parking slots.
+Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update the infromation related to the parking slots from the databases.
 
 #### Backend: general concepts
-There have been several theoretical consideration that led to choose a specific typology of either database or web framework rather than the another one.
-* **Database**: the choise of a NoSQL address has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
-* **Web Service**: the choise of the web framework to use for the backend has been led by the consideration of have a single language across the whole application. In order to achieve this goal has been used Ktor as web framework (implemented in Kotlin). In order to implement the routes for the web service has been adopted a ReST approach in order to create ReSTful API. \
+#NEEDSREVIEW
+There have been several theoretical considerations that led to choosing a specific typology of either database or web framework rather than another one.
+* **Database**: the choice of a NoSQL database has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
+* **Web Service**: the choice of the web framework to use for the backend is led by the target of having a single language across the whole application. To achieve this goal we choose Ktor as the web framework (implemented in Kotlin). To implement the routes for the web service we will adopt a ReST approach. \
 
 #### Backend: architecture
-The architecture adopted for the backend has followed the rules of the **Clean architecture**. This architecture led to the detection of several layers for the application and has been applied to both the two modules that the backend has: **user** and **parking slot**. The layers detected are the following:
+The architecture of the backend follows the rules of the **Clean architecture**. This architecture lead to the detection of several layers for the application and is applied to both the two modules that the backend has: **user** and **parking slot**. The layers are the following:
 * **entity**
 * **use cases**
 * **interface adapter**
 * **framework**
 
-In the following is reported the architecture for each module:
+In the following we report the architecture for each module:
 
 ##### User 
 * Entity:
-    - **User**: completely mapped in the database, it represents all used information about the user (email, password and name).
-    - **User credentials**: represents a id-password pair used from the user to log him into the system (the user identifier is the email address).
-    - **User info**: objects that represent the user's not sensitive information. It corresponds to a user object without password field.
+    - **User**: this entity contains information about the user: email, password and name.
+    - **User credentials**: represents an email-password pair used by the user to log in to the system.
+    - **User info**: this entity represents the user's not sensitive information. It corresponds to a user entity without the password field.
 * Use cases:
-    - **Login**: a user provides his identified and password to access the system.
-    - **create user**: a user wants to register him on the sistem.
-    - **Get info**: a user wants see him account information.
-    - **Change password**: a user wants to change his password with a new one. 
-    - **Delete user**: a registered user wants to delete his account.
-    - **Validate**: a email-password pair must be validated (checking if a user with this email exists in the database and if the associated password corresponds with the one in the email-password pair).
+    - **Login**: a user provides his email and password to access the system.
+    - **create user**: a user wants to be registered on the sistem.
+    - **Get info**: a user wants to see their account information.
+    - **Change password**: a user wants to change their password with a new one. 
+    - **Delete user**: a registered user wants to delete their account.
+    - **Validate**: an email-password pair must be validated (checking if a user with this email exists in the database and if the associated password corresponds with the one provided).
     - **Exists** an user email must be verified checking in the database if there's a registered user with this email
 
 * Interface adapter:
@@ -54,7 +55,7 @@ In the following is reported the architecture for each module:
 
 ##### Parking slot
 * Entity:
-    - **Paring Slot**: this entity is completely mapped into the database and      represents a single parking slot. Any other component of the parking slot module depends on the parking slot entity.
+    - **Paring Slot**: this entity is completely mapped into the database and represents a single parking slot. Any other component of the parking slot module depends on the parking slot entity.
 
 * Use cases:
     - **Occupy a slot**: this is the use case in which a user is intended to occupy a parking slot for a certain amount of time
@@ -73,20 +74,20 @@ The 3 inner layers of CLEAN architecture are located in **user** submodule while
 
 * **entity** package contains serializable data classes that implement user entities (User, UserInfo and UserCredentials).
 * **use_cases** package contains an interfaace that describe the behaviour of all the use cases.
-* **interface_adapter** package contains a class UserInterfaceAdapter that implements the use cases. It also includes two submodules: a model package and a utils package. The model subpackage contains data classes that define the request/response body structure that should be used from the framework layer. The utils subpackage contains utility functions such as email sender method and jwt handler methods (generation and validation).
+* **interface_adapter** package contains a class UserInterfaceAdapter that implements the use cases. It also includes two submodules: a model package and a utils package. The model subpackage contains data classes that define the request/response body structure that should be used by the framework layer. The utils subpackage contains utility functions such as email sender method and jwt handler methods (generation and validation).
 
 ##### Parking Slot
-In order to talk about the implementation of the parking slot operations inside the submodule **parking-slot** is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases and interface adapter) correspond to three packages into the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. In the following are reported more specifically the element that fill any of the three layers of the **parking-slot** submodule:
-* **entity**: in this package there are all those entities that are the domain basis for the parking-slot subproject. These core entities are:
-    - **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
-    - **Center**: represents the area around the which the user is interested about the status of the parking slots.
-    - **StopEnd**: represents the end stop setted or incremented for a certain parking slot.
-    - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time and the identifier (that is unique for each parking slot)
-    All these entities are modelled as **Kotlin** classes. This choise derived by the consideration about the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choise has been to model them as classes.
+In order to talk about the implementation of the parking slot operations inside the submodule **parking-slot** it is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases, and interface adapter) correspond to three packages in the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. We now report more specifically the elements that fill any of the three layers of the **parking-slot** submodule:
+* **entity**: in this package, there are all those entities that are the domain basis for the parking-slot subproject. These core entities are:
+ - **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
+ - **Center**: represents the area around which the user is interested in the status of the parking slots.
+ - **StopEnd**: represents the end stop set or incremented for a certain parking slot.
+ - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time, and the identifier (that is unique for each parking slot)
+ All these entities are modeled as **Kotlin** classes. This choice is derived from the consideration of the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choice has been to model them as classes.
 
-* **use_cases**: in this package are reported the use cases, representing the second layer of the clean architecture previosuly presentend. Remaining on the implementation side the use cases have been represented as method of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framwework requests.
+* **use_cases**: in this package are reported the use cases, representing the second layer of the clean architecture previously presented. Remaining on the implementation side the use cases have been represented as methods of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framework requests.
 
-* **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as constuctor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provide the results that are used into the framework package to provide the responds to the incoming requests from the client. It's important to notice how, implementing the Interface adapter in this way, the use cases remains independent from it and, in case of change of the Database, will only be necessary to change the constructor argument and some operation inside this class. This solution has been thought to be aligned to the SoC principle and, furthermore, to be coherent with the previous domain analysis.
+* **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as a constructor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provides the results that are used in the framework package to provide the responses to the incoming requests from the client. It's important to notice how implementing the Interface adapter in this way, the use cases remain independent from it and, in case of a change of the Database, will only be necessary to change the constructor argument and some operations inside this class. This solution has been thought to be aligned with the SoC principle and, furthermore, to be coherent with the previous domain analysis.
 
 ### Frontend
 The frontend follows the Clean Architecture pattern. 
