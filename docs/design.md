@@ -7,9 +7,7 @@ nav_order: 5
 # Design
 
 ## Architecture and implementation
-The architecture decided to adopt is a simple Client/Server architecture, with the client (the Android app) that is in charge to handle the interaction with the user and the backend (the server) that is in charge to provide consistent data related to the parking slots and that is in charge to handle the registration/access procedures. \
-A first general consideration is meaningful considering the separation between the logic/storage component (the backend) and the logic/presentation component (the frontend). This separation has been the result of deep analysis and it resulted as the best choice because of the possibility to have independence in both architecture and implementation of each part. More specifically, adopting this philosophy of separation of concerns on the architectural side has been possible to choose the database that turned out to be the best for us and to choose the web service framework totally free.
-It's important to have a deeper view on both sides, frontend and backend, in order to better analyze their own architecture.
+The system is composed of a frontend and a backend. The Android app serves as the frontend, responsible for managing user interactions, while the backend ensures consistent parking slot data and managing sign-up/login procedures. \ This separation between the frontend and the backend allows us to swap either component at any time without affecting the other. Moreover, it permits to introduce new clients, written in different programming languages, such as an iOS app developed using Swift. To fully understand the architecture of our system, it is necessary to take a closer look at both the frontend and backend.
 
 ### Backend
 The backend is composed by the database and by the software that is in charge to define the logic behind the access to the database. More specifically there are two main component:
@@ -91,19 +89,21 @@ In order to talk about the implementation of the parking slot operations inside 
 * **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as constuctor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provide the results that are used into the framework package to provide the responds to the incoming requests from the client. It's important to notice how, implementing the Interface adapter in this way, the use cases remains independent from it and, in case of change of the Database, will only be necessary to change the constructor argument and some operation inside this class. This solution has been thought to be aligned to the SoC principle and, furthermore, to be coherent with the previous domain analysis.
 
 ### Frontend
-The frontend follows the Clean Architecture with a separation into four main layers:
-* The **domain layer** contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain layer does not depend on any other layers.
-* The **data layer** is responsible for managing the interaction with local storage, backend API and system services. It contains data sources, and repositories implementation. This layer only depends on the domain layer.
+The frontend follows the Clean Architecture pattern. 
+AGGIUNGI SPIEGAZIONE CLEAN ARCHITECTURE.
+It is organized in four layers:
+* The **domain layer** contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain layer does not depend on any other layer.
+* The **data layer** is responsible for managing the interaction with local storage, backend API and system services. It contains data sources and repositories implementation. This layer only depends on the domain layer.
 * The **presentation layer** contains the user interface components. This module only depends on the domain layer.
-* The **app layer** depends on all the three previous layers and it is responsible for the launch of the app.
+* The **app layer** depends on all three previous layers and it is responsible for the launch of the app.
 
-By separating the frontend into distinct layers, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data layer and the presentation layer only depends on interfaces (Dependency Inversion Principle). To give the proper implementation to the layers that needs it we will use the service locator pattern.
+By separating the frontend into distinct layers, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data layer and the presentation layer only depend on interfaces (Dependency Inversion Principle). To give the proper implementation to the layers that need it we will use the service locator pattern.
 
 
-_In the following UML Class Diagrams it is possible to find the `async` keyword: it means that the method doesn't return immediately: it is asynchronous._
+_In the following UML Class Diagrams it is possible to find the `async` keyword: it means that the method does not return immediately: it is asynchronous._
 
 #### Domain Layer
-The domain layer is furtherly split down in `user` and `parking slot` packages to isolate the DDD subdomains.
+The domain layer is furtherly split down into `user` and `parking slot` packages to isolate the DDD subdomains.
 
 ##### Entities
 
@@ -112,18 +112,18 @@ The domain layer is furtherly split down in `user` and `parking slot` packages t
   <figcaption>Parking slot package entities</figcaption>
 </figure>
 <br/>
-In the above UML Class Diagram there are multiple entities used to represent the parking slot. This is identified by an `id` and contains information about its position and its state (whether it's occupied or not).
+In the above UML Class Diagram there are multiple entities used to represent the parking slot, which is identified by an `id` and contains information about its position and its state (whether it is occupied or not).
 
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/entities_parking_slot.png?raw=true"/>
   <figcaption>User package entities</figcaption>
 </figure>
 <br/>
-In the above UML Class Diagram there are several classes used to represent the user. In particular:
+In the above UML Class Diagram there are several classes used to represent the user. Specifically:
 
 * **User**: a user registered in the system;
 * **NewUser**: a new user to be added in the system;
-* **UserCredentials**: the credentials to be used to login in the system;
+* **UserCredentials**: the credentials to be used to log in to the system;
 * **AuthState**: whether an user is currently logged in or not.
 
 <br/>
@@ -144,42 +144,42 @@ In the above UML Class Diagram there are several classes used to represent the u
 ##### Use Cases
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/base_usecases.png?raw=true"/>
-  <figcaption>Base use cases</figcaption>
+  <figcaption>Basic use cases</figcaption>
 </figure>
 <br/>
 
-To simplify the creation of use cases we have created some abstract classes from which all the use cases inherits.
+To simplify the creation of use cases we have created some abstract classes which all the use cases inherit from.
 * `UseCase`: a non-failable use case that always returns in a non-asynchronous manner
 * `AsyncUseCase`: a non-failable asynchronous use case
 * `AsyncFailableUseCase`: a failable and asynchronous use case (the error is always the `Left` type of `Either`)
 
 We have identified the following use cases for the user management subdomain:
 * `GetAuthState`: provides the `AuthState` (whether an user is currently logged in or not);
-* `GetUser`: provides information about the currently logged in user;
+* `GetUser`: provides information about the currently logged-in user;
 * `SignUpUser`: signs up a new user given email, name and password;
-* `LoginUser`: logs in a user given user credentialn;
-* `ChangeUserPassword`: changes the current password of the user with a different one;
-* `LogoutUser`: logs out the currently logged in user;
-* `DeleteUser`: deletes the logged in user.
+* `LoginUser`: logs in a user given user credentials;
+* `ChangeUserPassword`: changes the current password of the user to a different one;
+* `LogoutUser`: logs out the currently logged-in user;
+* `DeleteUser`: deletes the logged-in user.
 
 Some of the above use cases use the following auxiliary use cases for data validation:
 * `ValidateUserName`: checks that the user name is valid;
 * `ValidateUserEmail`: checks that the user email is valid according to [RFC822](https://www.ietf.org/rfc/rfc0822.txt?number=822);
 * `ValidateUserPassword`: checks that the user password is valid.
 
-Instead, for the parking slot management subdomain we have identified the following use cases:
+As for the parking slot management subdomain, we have identified the following use cases:
 * `FindParkingSlots`: finds all the parking slots within a certain radius from a position (`GeoPosition`);
 * `ViewParkingSlot`: provides information about a single parking slot identified by a given id;
-* `ViewCurrentParkingSlot`: provides information about the parking slot currently occupied by the user;
+* `ViewCurrentParkingSlot`: provides information about the parking slot which is currently occupied by the user;
 * `OccupyParkingSlot`: occupies a parking slot if it is not currently occupied;
-* `IncrementParkingSlotOccupation`: increments the occupation of the parking slot currently occupied by the user;
-* `FreeParkingSlot`: frees the parking slot currently occupied by the user, if the user isn't occupying a parking slot it does nothing.
+* `IncrementParkingSlotOccupation`: increments the occupation of the parking slot which is currently occupied by the user;
+* `FreeParkingSlot`: frees the parking slot which is currently occupied by the user; if the user isn't occupying a parking slot it does nothing.
 
 
 #### Data Layer
-In this layer we find the implementation of the repositories, in our system repositories act as mediators between different data sources such as local authentication token storage and backend API.
-This allows for better decoupling and testability since repository implementation doesn't need to access the APIs exposed by the underlying system unlike the data sources.
-To further decouple the domain layer from the data layer we make data sources return data transfer objects (DTOs). DTOs are simple objects that contain only the data needed to read information from the backend. Then these objects are mapped by the repositories into domain layer entities. 
+This layer contains the implementation of the repositories and data sources. In our system, repositories act as mediators between different data sources, such as local authentication token storage and backend API.
+This allows for a better decoupling and testability, since repository implementation does not need to access the APIs exposed by the underlying system, unlike the data sources.
+To further decouple the domain layer from the data layer, we make data sources return data transfer objects (DTOs). DTOs are simple objects that only contain the data needed to read information from the backend. These objects are then mapped by the repositories into domain layer entities. 
 
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/datasources.png?raw=true"/>
@@ -187,10 +187,10 @@ To further decouple the domain layer from the data layer we make data sources re
 </figure>
 <br/>
 
-In the above class diagram we can see all the data sources used by repositories, for brevity not all DTOs are shown. The fact that we are looking at classes made to interact with the backend (`ParkingSlotDataSource`, `UserDataSource`) is clear from the `Body` suffix in some method arguments: this is the body of the requests to be made to the backend. The usage of data sources and DTOs allows us to hide these details. 
+In the above class diagram we can see all the data sources used by repositories (for brevity not all DTOs are shown). The fact that we are looking at classes which are meant to interact with the backend (`ParkingSlotDataSource`, `UserDataSource`) is made clear by the `Body` suffix in some method arguments, which are the bodies of the requests to submit to the backend. The usage of data sources and DTOs allows us to hide these details. 
 
 #### Presentation Layer
-This layer contains all the user interface components, and, like the other layers, is splitted in `user` and `parking slot` packages. 
+This layer contains all the user interface components, and, like the other layers, is splitted into `user` and `parking slot` packages. 
 
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/mvvm.png?raw=true"/>
@@ -198,10 +198,10 @@ This layer contains all the user interface components, and, like the other layer
 </figure>
 <br/>
 
-In this layer we have decided to use the MVVM design pattern. MVVM separates the concerns of the UI presentation and the business logic:
-* the view is responsible for displaying the UI
+Here, we decide to use the MVVM design pattern. MVVM separates the concerns of the UI presentation and the business logic:
+* the view is responsible for displaying the UI;
 * the model encapsulate the app's data;
-* the view-model acts as the intermediary between the view and the model. This separation makes the code easier to maintain and test. It furthermore improves testability by allowing us to test the business logic without having to test the UI components. That means there is no need for simulator, emulator or real devices to test the business logic.
+* the view-model acts as the intermediary between the view and the model. This separation makes the code easier to maintain and test. Furthermore, it improves testability by allowing us to test the business logic without having to test the UI components. That means there is no need for simulators, emulators or real devices to test the business logic.
 
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_router.png?raw=true"/>
@@ -209,7 +209,7 @@ In this layer we have decided to use the MVVM design pattern. MVVM separates the
 </figure>
 <br/>
 
-In the UML Class Diagram above the `Router` is shown, it exposes two methods for navigating to a specific screen and dismissing the current screen and an observable containing the navigation requests ( `RouterCommand` ). This observable can be listened by the system to navigate to a specific screen when it's needed.
+In the UML Class Diagram above the `Router` is shown: it exposes two methods for navigating to a specific screen and dismissing the current screen. Moreover, there is an observable containing the navigation requests ( `RouterCommand` ). This observable is used by the system to know when to navigate to a specific screen.
 
 <figure align="center">
   <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/presentation_app_alert.png?raw=true"/>
