@@ -8,6 +8,6 @@ Smart parking is an application that helps people to find out free places to par
 This repository contains the documentation of the project. 
 
 ## Helpful links
-* [**Documentation**](https://antonioiannotta.github.io/LSS-documentation/)
+* [**Report**](https://antonioiannotta.github.io/LSS-documentation/)
 * [**Backend source code**](https://github.com/antonioIannotta/parking-system-backend) 
 * [**Frontend source code**](https://github.com/GZaccaroni/smart-parking-frontend)
