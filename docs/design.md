@@ -90,11 +90,19 @@ In order to talk about the implementation of the parking slot operations inside 
 * **interface_adapter**: this package contains a class, **InterfaceAdapter**, that receives as a constructor parameter a collection of the MongoDB database, in this case. This class implements the UseCases interface and provides the results that are used in the framework package to provide the responses to the incoming requests from the client. It's important to notice how implementing the Interface adapter in this way, the use cases remain independent from it and, in case of a change of the Database, will only be necessary to change the constructor argument and some operations inside this class. This solution has been thought to be aligned with the SoC principle and, furthermore, to be coherent with the previous domain analysis.
 
 ### Frontend
-The frontend follows the Clean Architecture pattern. 
-AGGIUNGI SPIEGAZIONE CLEAN ARCHITECTURE.
-It is organized in four layers:
+The frontend follows the Clean Architecture pattern. Clean Architecture was first introduced by Robert C. Martin in his book "Clean Architecture: A Craftsman's Guide to Software Structure and Design". It is a way of organizing a software system in a way that separates the concerns of the various components, making it easier to understand and maintain. Specifically, we obtain the following advantages:
+* **modularity**: it helps to create a clear separation of concerns within the codebase. Each layer is decoupled from the others and has a specific purpose;
+* **testability**: since the inner circle is independent of the outer layers, it is way easier to write unit tests that focus on the business rules:
+* **loose coupling**: it's easier to swap out external dependencies without affecting the business logic;
+* **flexibility**: the separation of concerns Clean Architecture provides makes it easier to modify and adapt the code to changing requirements;
+at expenses of:
+* **boilerplate**: achieving indirection requires an important number of interfaces;
+* **learning curve**: initially it is relatively difficult to learn differently from other patterns.
+Finally, the choice is all about the current size of the project and how much we expect it to grow.
+
+Following this architecture we organized the frontend in four layers:
 * The **domain layer** contains all the entities, use cases and repositories. It defines the core concepts and business rules of the app and use cases. The domain layer does not depend on any other layer.
-* The **data layer** is responsible for managing the interaction with local storage, backend API and system services. It contains data sources and repositories implementation. This layer only depends on the domain layer.
+* The **data layer** (also called *infrastructure layer*)is responsible for managing the interaction with local storage, backend API and system services. It contains data sources and repositories implementation. This layer only depends on the domain layer.
 * The **presentation layer** contains the user interface components. This module only depends on the domain layer.
 * The **app layer** depends on all three previous layers and it is responsible for the launch of the app.
 
