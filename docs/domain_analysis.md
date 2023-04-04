@@ -120,7 +120,7 @@ After completing the previous step of knowledge crunching, a dictionary is creat
 
 ## Use cases
 Following a thorough domain analysis, the use cases and entities involved in this system are identified. The diagram below depicts the use cases for the system: 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use-cases.drawio.png?raw=true "Use cases") \
+![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use_cases.png?raw=true "Use cases") \
 From the previous image it is possible to see how, in this system, there are two main actors involved in the operations:
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slots, to set an end stop time and to increment this time.
 * **Client**: the client is the actor in charge of handling all the requests that are made by the user. More specifically, the client is intended to handle the operation of registration and access to the system. The client is also in charge of handling a proper visualization of the status of the parking slots. The client is also responsible for handling the setting of the end stop time or the increment of this time.
@@ -141,17 +141,47 @@ It is possible to notice, from the picture, the following operations:
 
 ## User stories
 After collecting the main use cases for the system, several user stories are developed to describe the system's functionality under specific circumstances. More specifically, the user stories illustrated are the following:
-* As a user, I want to access the system so that I can find and occupy a parking slot.
-* As a user, I want to occupy a parking slot for a certain period of time so that I can park my vehicle.
-* As a user, I want to see the status of each parking slot on the map so that I can determine whether it is occupied or available.
-* As a user, I want to be able to increment the occupation of my current parking slot if I need to park my vehicle for a longer period of time.
+* **US1:** As a user, I want to sign up to the system with my email and I want the system to save my user credentials so that I can login directly the next time.
+* **US2:** As a user, I want to log in to the system with my user credentials so that I can find and occupy a parking slot.
+* **US3:** As a user, I want to see nearby parking slots on the map so that I can determine whether it is occupied or free.
+* **US4:** As a user, I want to the details of a parking slot that I can know when it becomes free.
+* **US5:** As a user, I want to occupy a parking slot for a certain period of time so that I can park my vehicle.
+* **US6:** As a user, I want to be able to increment the occupation of my current parking slot if I need to park my vehicle for a longer period of time.
 
 Below, you will find the illustrated user stories:
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/The%20user%20access%20to%20the%20system_2023-02-07.png?raw=true "User stories access")
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/user_sign_up.png?raw=true"/>
+  <figcaption>US1: User sign up</figcaption>
+</figure>
+<br/>
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20operation_2023-02-07.png?raw=true "Occupy parking slot")
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/user_login.png?raw=true"/>
+  <figcaption>US2: User login</figcaption>
+</figure>
+<br/>
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Status%20show_2023-02-07.png?raw=true "View parking slot statuses")
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/view_parking_slots.png?raw=true"/>
+  <figcaption>US3: View nearby parking slots</figcaption>
+</figure>
+<br/>
 
-![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/Parking%20extension_2023-02-07.png?raw=true "Increment parking slot occupation")
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/view_parking_slot.png?raw=true"/>
+  <figcaption>US4: View parking slot</figcaption>
+</figure>
+<br/>
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/occupy_parking_slot.png?raw=true"/>
+  <figcaption>US5: Occupy parking slot</figcaption>
+</figure>
+<br/>
+
+<figure align="center">
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/user%20stories/increment_parking_slot_occupation.png?raw=true"/>
+  <figcaption>US6: Increment parking slot occupation</figcaption>
+</figure>
+<br/>
