@@ -19,9 +19,8 @@ While there's not a lot to say about the database it's important to talk about t
 Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update the infromation related to the parking slots from the databases.
 
 #### Backend: general concepts
-#NEEDSREVIEW
 There have been several theoretical considerations that led to choosing a specific typology of either database or web framework rather than another one.
-* **Database**: the choice of a NoSQL database has been the result of a simple consideration: since the data in this application have a core into the parking slots it has been wise to map this core even into the database. Adopting a NoSQL database like **MongoDB** made it easier to organize the several documents indexing each one by the parking slot identifier.
+* **Database**: the choice of a NoSQL database has been the result of multiple considerations concerning scalability, performance, and geographical query support. The possibility to scale horizontally splitting parking slot data into different shards would be really good also for the availability. Also, geographical queries are fast on NoSql databases and *MongoDB* offers first-party support to them. Furthermore, MongoDB offers a Cloud solution named *MongoDB Atlas* that can be easily swapped at any moment with its open-source counterpart.
 * **Web Service**: the choice of the web framework to use for the backend is led by the target of having a single language across the whole application. To achieve this goal we choose Ktor as the web framework (implemented in Kotlin). To implement the routes for the web service we will adopt a ReST approach. \
 
 #### Backend: architecture
