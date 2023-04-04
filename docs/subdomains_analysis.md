@@ -6,7 +6,7 @@ nav_order: 4
 
 # Subdomains Analysis
 
-In Domain Driven Design in order to better manage the complexity of the domain you want to analyze, it is advisable to thoroughly explore the problem-domain by identifying subdomains.
+In Domain Driven Design, in order to manage the complexity of the domain you want to analyze better, it is advisable to thoroughly explore the problem-domain by identifying subdomains.
 We identified three subdomains:
 * **Parking Management (Core)**: this is responsible for managing parking slots, their availability, and their occupancy status. It contains entities such as Parking Slot and Parking Slot State. It is a core subdomain because it contains the main entities and business logic related to the problem: this is the central domain of the application.
 * **User Management (Generic)**: this is responsible for managing users, sign up, and login. It contains entities such as User, User Credentials, and Authentication Token. This subdomain is generic because the functionalities it provides are often needed in many different applications and are not specific to the domain of parking management.
@@ -16,7 +16,7 @@ We identified three subdomains:
 
 ## Bounded contexts
 
-The subdomain **Parking Management** is composed of two bounded contexts described in the following bounded context canvases:
+The subdomain **Parking Management** is made up of two bounded contexts, which are described in the following bounded context canvases:
 
 | Name | Parking Slot Management |
 | Description | Responsible for managing parking slots and their availability. Contains entities such as Parking Slot and Parking Slot State. |
@@ -40,7 +40,7 @@ The subdomain **Parking Management** is composed of two bounded contexts describ
 | Inbound Communications | - |
 | Outbound Communication | Parking Slot Management |
 
-The subdomain **User Management** is composed of two bounded contexts described in the following bounded context canvases:
+The subdomain **User Management** is made up of of two bounded contexts, which are described in the following bounded context canvases:
 
 | Name | User Management |
 | Description | responsible for managing user and personal information. Contains entities such as User. |
@@ -64,7 +64,7 @@ The subdomain **User Management** is composed of two bounded contexts described 
 | Inbound Communications | - |
 | Outbound Communication | User Management |
 
-The supporting subdomain **Client** is composed of two bounded contexts described in the following bounded context canvases:
+The supporting subdomain **Client** is made up of of two bounded contexts, which are described in the following bounded context canvases:
 
 | Name | User Interface |
 | Description | responsible for handling user interactions and presenting information to the user. |
@@ -90,6 +90,6 @@ The supporting subdomain **Client** is composed of two bounded contexts describe
 
 
 ## Context Map
-Bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
+The bounded contexts relationship was modeled in a context map. The context map was generated using Context Mapper VSC's extension.
 ![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/strategic_design/cm.png?raw=true "System context map")
 
