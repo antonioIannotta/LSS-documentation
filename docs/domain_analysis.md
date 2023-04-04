@@ -121,9 +121,9 @@ After completing the previous step of knowledge crunching, a dictionary is creat
 ## Use cases
 Following a thorough domain analysis, the use cases and entities involved in this system are identified. The diagram below depicts the use cases for the system: 
 ![alt text](https://github.com/antonioiannotta/LSS-documentation/blob/main/use_case/use-cases.drawio.png?raw=true "Use cases") \
-From the previous image it is possible to see how, in this system, there are two main actors involved in the operations:\
+From the previous image it is possible to see how, in this system, there are two main actors involved in the operations:
 * **User**: the user is the actor that is intended to use the application in order to look for free parking slots, to set an end stop time and to increment this time.
-* **Client**: the client is the actor in charge of handling all the requests that are made by the user. More specifically, the client is intended to handle the operation of registration and access to the system. The client is also in charge of handling a proper visualization of the status of the parking slots. The client is also responsible for handling the setting of the end stop time or the increment of this time. \
+* **Client**: the client is the actor in charge of handling all the requests that are made by the user. More specifically, the client is intended to handle the operation of registration and access to the system. The client is also in charge of handling a proper visualization of the status of the parking slots. The client is also responsible for handling the setting of the end stop time or the increment of this time.
 
 
 It is possible to notice, from the picture, the following operations:

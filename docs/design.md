@@ -7,7 +7,8 @@ nav_order: 5
 # Design
 
 ## Architecture and implementation
-The system is composed of a frontend and a backend. The Android app serves as the frontend, responsible for managing user interactions, while the backend ensures consistent parking slot data and managing sign-up/login procedures. \ This separation between the frontend and the backend allows us to swap either component at any time without affecting the other. Moreover, it permits to introduce new clients, written in different programming languages, such as an iOS app developed using Swift. To fully understand the architecture of our system, it is necessary to take a closer look at both the frontend and backend.
+The system is composed of a frontend and a backend. The Android app serves as the frontend, responsible for managing user interactions, while the backend ensures consistent parking slot data and managing sign-up/login procedures. \
+This separation between the frontend and the backend allows us to swap either component at any time without affecting the other. Moreover, it permits to introduce new clients, written in different programming languages, such as an iOS app developed using Swift. To fully understand the architecture of our system, it is necessary to take a closer look at both the frontend and backend.
 
 ### Backend
 The backend is composed of the database and the software that is in charge to define the logic behind the access to the database. More specifically, there are two main components:
@@ -21,7 +22,7 @@ Each of these routes is in charge to recall logic to handle either the user acce
 #### Backend: general concepts
 There have been several theoretical considerations that led to choosing a specific typology of either database or web framework rather than another one.
 * **Database**: the choice of a NoSQL database has been the result of multiple considerations concerning scalability, performance, and geographical query support. The possibility to scale horizontally splitting parking slot data into different shards would be really good also for the availability. Also, geographical queries are fast on NoSql databases and *MongoDB* offers first-party support to them. Furthermore, MongoDB offers a Cloud solution named *MongoDB Atlas* that can be easily swapped at any moment with its open-source counterpart.
-* **Web Service**: the choice of the web framework to use for the backend is led by the target of having a single language across the whole application. To achieve this goal we choose Ktor as the web framework (implemented in Kotlin). To implement the routes for the web service we will adopt a ReST approach. \
+* **Web Service**: the choice of the web framework to use for the backend is led by the target of having a single language across the whole application. To achieve this goal we choose Ktor as the web framework (implemented in Kotlin). To implement the routes for the web service we will adopt a ReST approach.
 
 #### Backend: architecture
 The architecture of the backend follows the rules of the **Clean architecture**. This architecture lead to the detection of several layers for the application and is applied to both the two modules that the backend has: **user** and **parking slot**. The layers are the following:
