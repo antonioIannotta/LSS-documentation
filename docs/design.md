@@ -124,7 +124,7 @@ The domain layer is furtherly split down into `user` and `parking slot` packages
 In the above UML Class Diagram there are multiple entities used to represent the parking slot, which is identified by an `id` and contains information about its position and its state (whether it is occupied or not).
 
 <figure align="center">
-  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/entities_parking_slot.png?raw=true"/>
+  <img src="https://github.com/antonioiannotta/LSS-documentation/blob/main/design/entities_user.png?raw=true"/>
   <figcaption>User package entities</figcaption>
 </figure>
 <br/>
