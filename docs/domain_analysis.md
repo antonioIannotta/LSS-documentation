@@ -30,8 +30,8 @@ The application displays a map with all the parking slots in a certain area, det
     - **orange**: the parking slot will be free in ten minutes
     - **green**: the parking slot is free
 
-* **How does a user select the distance of interest in which he can see the parking slots?**\
-The user can select the distance of interest specifying a range in which he wants to see the parking slots status.
+* **How does a user select the distance of interest in which they can see the parking slots?**\
+The user can select the distance of interest specifying a range in which they want to see the parking slots status.
 
 * **Can a user increase their parking time?**\
 Users can increase the duration of their parking anytime. However, they can only choose a time after the previously selected end time (it is not possible to shorten the parking time).
@@ -128,23 +128,23 @@ From the previous image it is possible to see how, in this system, there are two
 
 It is possible to notice, from the picture, the following operations:
 * **User sign up**: The user creates an account with name, email, and password, to access the system.
-* **User login**: The user logs in to his account with his username and password to access the system.
+* **User login**: The user logs in of their account with their username and password to access the system.
 * **User password change**: The user changes the password used to access the system by providing the current one and a new one.
 * **User deletion**: The user requests the deletion of all their personal information from the system.
-* **User logout**: The user logs out of his account from the frontend.
+* **User logout**: The user logs out of their account from the frontend.
 * **View parking slots**: The user views a map of available parking slots near their current location. The map shows the markers of the parking slots.
 * **View parking slot**: The user views the location and the current status of a specific parking slot.
-* **View current parking slot**: The user views the location and the current status of the parking slot he's currently occupying.
+* **View current parking slot**: The user views the location and the current status of the parking slot they are currently occupying.
 * **Occupy parking slot**: The user occupies a parking slot until the stop end.
-* **Increment parking slot occupation**: The user sets a new stop end for the parking slot he's currently occupying.
-* **Free parking slot**: The user frees the parking slot he's currently occupying.
+* **Increment parking slot occupation**: The user sets a new stop end for the parking slot they are currently occupying.
+* **Free parking slot**: The user frees the parking slot they are currently occupying.
 
 ## User stories
 After collecting the main use cases for the system, several user stories are developed to describe the system's functionality under specific circumstances. More specifically, the user stories illustrated are the following:
 * **US1:** As a user, I want to sign up to the system with my email and I want the system to save my user credentials so that I can login directly the next time.
 * **US2:** As a user, I want to log in to the system with my user credentials so that I can find and occupy a parking slot.
 * **US3:** As a user, I want to see nearby parking slots on the map so that I can determine whether it is occupied or free.
-* **US4:** As a user, I want to the details of a parking slot so that I can know when it becomes free.
+* **US4:** As a user, I want to view the details of a parking slot so that I can know when it becomes free.
 * **US5:** As a user, I want to occupy a parking slot for a certain period of time so that I can park my vehicle.
 * **US6:** As a user, I want to be able to increment the occupation of my current parking slot if I need to park my vehicle for a longer period of time.
 
