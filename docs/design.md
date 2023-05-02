@@ -14,10 +14,7 @@ This separation between the frontend and the backend allows us to swap either co
 The backend is composed of the database and the software that is in charge to define the logic behind the access to the database. More specifically, there are two main components:
 * **Database** two different databases are used for the application, one for the user authentication bounded context and one for the parking slot management bounded context. Both databases use MongoDB Atlas.
 * **Web Service**
-While there's not a lot to say about the database it's important to talk about the web service. It exposes two main routes:
-* **/user**
-* **/parking-slot**
-Each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update the infromation related to the parking slots from the databases.
+While there's not a lot to say about the database it's important to talk about the web service. It exposes two main routes, **/user** and **/parking-slot**: each of these routes is in charge to recall logic to handle either the user access/registration to the service or to retrieve/update the infromation related to the parking slots from the databases.
 
 #### Backend: general concepts
 There have been several theoretical considerations that led to choosing a specific typology of either database or web framework rather than another one.
@@ -40,12 +37,12 @@ In the following we report the architecture for each module:
     - **User info**: this entity represents the user's not sensitive information. It corresponds to a user entity without the password field.
 * Use cases:
     - **Login**: a user provides his email and password to access the system.
-    - **create user**: a user wants to be registered on the sistem.
+    - **Create user**: a user wants to be registered on the sistem.
     - **Get info**: a user wants to see their account information.
     - **Change password**: a user wants to change their password with a new one. 
     - **Delete user**: a registered user wants to delete their account.
-    - **Validate**: an email-password pair must be validated (checking if a user with this email exists in the database and if the associated password corresponds with the one provided).
-    - **Exists** an user email must be verified checking in the database if there's a registered user with this email
+    - **Validate**: an email-password pair must be validated (checking if a user with this email exists in the database and if the associated password corresponds to the one provided).
+    - **Exists**: an user email must be verified checking in the database if there's a registered user with this email
 
 * Interface adapter:
     - handles the framework layer requests, translating them into use cases.
@@ -73,16 +70,16 @@ In the following we report the architecture for each module:
 The 3 inner layers of CLEAN architecture are located in **user** submodule while the framework layer is in the core module due to the shared aspect with **parking-slot** submodule (there are framework features shared by both submodules, such as the application server and routing and authentication features). 
 
 * **entity** package contains serializable data classes that implement user entities (User, UserInfo and UserCredentials).
-* **use_cases** package contains an interfaace that describe the behaviour of all the use cases.
+* **use_cases** package contains an interface that describe the behaviour of all the use cases.
 * **interface_adapter** package contains a class UserInterfaceAdapter that implements the use cases. It also includes two submodules: a model package and a utils package. The model subpackage contains data classes that define the request/response body structure that should be used by the framework layer. The utils subpackage contains utility functions such as email sender method and jwt handler methods (generation and validation).
 
 ##### Parking Slot
 In order to talk about the implementation of the parking slot operations inside the submodule **parking-slot** it is important to keep together implementation and clean architecture. The clean architecture previously presented is composed of four layers. The three inner layers (entity, use cases, and interface adapter) correspond to three packages in the **parking-slot** submodule. The fourth layer (framework) is outside this module by the moment it is common to both **parking-slot** and **user** submodules. We now report more specifically the elements that fill any of the three layers of the **parking-slot** submodule:
 * **entity**: in this package, there are all those entities that are the domain basis for the parking-slot subproject. These core entities are:
- - **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
- - **Center**: represents the area around which the user is interested in the status of the parking slots.
- - **StopEnd**: represents the end stop set or incremented for a certain parking slot.
- - **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time, and the identifier (that is unique for each parking slot)
+  * **Position**: represents a single position expressed as latitude-longitude coordinates. This entity is helpful because it provides the exact location for each parking slot.
+   * **Center**: represents the area around which the user is interested in the status of the parking slots.
+   * **StopEnd**: represents the end stop set or incremented for a certain parking slot.
+   * **ParkingSlot**: represents a single parking slot with its properties: the status (either occupied or not), the position expressed as latitude and longitude, the end stop time, and the identifier (that is unique for each parking slot)
  All these entities are modeled as **Kotlin** classes. This choice is derived from the consideration of the possible inheritance of these classes. By the moment these entities could be subjected to inheritance in future uses and future development of the domain the choice has been to model them as classes.
 
 * **use_cases**: in this package are reported the use cases, representing the second layer of the clean architecture previously presented. Remaining on the implementation side the use cases have been represented as methods of an interface to be implemented by the interface adapter. This is because the interface adapted is in charge to implement the methods translating into it the framework requests.
@@ -96,8 +93,8 @@ The frontend follows the Clean Architecture pattern. Clean Architecture was firs
 * **loose coupling**: it's easier to swap out external dependencies without affecting the business logic;
 * **flexibility**: the separation of concerns Clean Architecture provides makes it easier to modify and adapt the code to changing requirements;
 at expenses of:
-* **boilerplate**: achieving indirection requires an important number of interfaces;
-* **learning curve**: initially it is relatively difficult to learn differently from other patterns.
+  * **boilerplate**: achieving indirection requires an important number of interfaces;
+  * **learning curve**: initially it is relatively difficult to learn differently from other patterns.
 Finally, the choice is all about the current size of the project and how much we expect it to grow.
 
 Following this architecture we organized the frontend in four layers:
@@ -107,7 +104,6 @@ Following this architecture we organized the frontend in four layers:
 * The **app layer** depends on all three previous layers and it is responsible for the launch of the app.
 
 By separating the frontend into distinct layers, we can ensure that the different parts of the app are decoupled and can be developed and tested independently. Both the data layer and the presentation layer only depend on interfaces (Dependency Inversion Principle). To give the proper implementation to the layers that need it we will use the service locator pattern.
-
 
 _In the following UML Class Diagrams it is possible to find the `async` keyword: it means that the method does not return immediately: it is asynchronous._
 
@@ -121,6 +117,7 @@ The domain layer is furtherly split down into `user` and `parking slot` packages
   <figcaption>Parking slot package entities</figcaption>
 </figure>
 <br/>
+
 In the above UML Class Diagram there are multiple entities used to represent the parking slot, which is identified by an `id` and contains information about its position and its state (whether it is occupied or not).
 
 <figure align="center">
@@ -128,14 +125,13 @@ In the above UML Class Diagram there are multiple entities used to represent the
   <figcaption>User package entities</figcaption>
 </figure>
 <br/>
+
 In the above UML Class Diagram there are several classes used to represent the user. Specifically:
 
 * **User**: a user registered in the system;
 * **NewUser**: a new user to be added in the system;
 * **UserCredentials**: the credentials to be used to log in to the system;
 * **AuthState**: whether an user is currently logged in or not.
-
-<br/>
 
 ##### Repositories
 <figure align="center">
@@ -184,7 +180,6 @@ As for the parking slot management subdomain, we have identified the following u
 * `IncrementParkingSlotOccupation`: increments the occupation of the parking slot which is currently occupied by the user;
 * `FreeParkingSlot`: frees the parking slot which is currently occupied by the user; if the user isn't occupying a parking slot it does nothing.
 
-
 #### Data Layer
 This layer contains the implementation of the repositories and data sources. In our system, repositories act as mediators between different data sources, such as local authentication token storage and backend API.
 This allows for a better decoupling and testability, since repository implementation does not need to access the APIs exposed by the underlying system, unlike the data sources.
@@ -225,7 +220,6 @@ In the UML Class Diagram above the `Router` is shown: it exposes two methods for
   <figcaption>App Alert</figcaption>
 </figure>
 <br/>
-
 
 ##### Parking Slot
 
