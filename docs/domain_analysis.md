@@ -101,7 +101,7 @@ After completing the previous step of knowledge crunching, a dictionary is creat
 | ---- | ---------- |
 | Backend | The part of the system that communicates with the frontend via APIs and reads and writes data into a database. |
 | Duration of parking | The length of time a user occupies a parking slot. |
-| Free parking slot | A parking slot that is currently not occupied by a vehicle. |
+| Free parking slot | The operation that the user do leaving the parking slot free from its own vehicle. |
 | Frontend | The part of the system that the user interacts with directly, including the user interface and any client-side logic. |
 | Login | The operation that enables a user with an existing account to access the system. |
 | Occupied parking slot | A parking slot that is currently occupied by a vehicle. |
